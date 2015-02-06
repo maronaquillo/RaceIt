@@ -230,5 +230,173 @@
 			</div>
 		</div>
 	</section>
+
+	<section id="homepageContent">
+		<div class="container-fluid">
+			<div class="col-sm-4 tabBox">
+				<a href="#"><img src="images/featured/monument10k-feature-img.jpg" alt="Sports Backers" border="0"></a>
+				<div class="box-content">
+					<h4>Featured Client</h4>
+					<h5>Sports Backers</h5>
+					<p>The Sports Backers pursue a goal to transform greater Richmond into the most physically active community in the nation by leading the area in embracing and celebrating an active lifestyle. The Sports Backers produces the Monument Avenue 10K, Richmond, Virginia's biggest running event of the year that takes place on the city's most iconic street. Sports Backers delivers other running, cycling and extreme sports events throughout the year.</p>
+					<p><a href="#">Find out more about their events »</a></p>
+				</div>
+			</div>
+			<div class="col-sm-4 tabBox">
+				<a href="#"><img border="0" alt="Race IT News" src="images/featured/news-feature-img.jpg"></a>
+				<div class="box-content">
+					<h5>News</h5>
+					<ul>
+						<li><a href="#">Race IT is hiring!</a></li>
+						<li><a href="#">Race IT and Challenge Family Triathlon Form Global Partnership</a></li>
+						<li><a href="#">Race IT Powers Army Ten-Miler Sellout</a></li>
+						<li><a href="#">National Running Day 2014</a></li>
+						<li><a href="#">The Oatmeal Creator Organizes "Beat the Blerch" Race</a></li>
+					</ul>
+					<p><a href="#">More News »</a></p>
+				</div>	
+			</div>
+			<div class="col-sm-4 tabBox">
+				<a href="#"><img src="images/featured/pt-newletter-img.jpg" alt="Race IT Newsletter" border="0"></a>
+				<div class="box-content">
+					<h4>Race IT</h4>
+					<h5>Newsletter</h5>
+					<p>Stay up to date on the latest news and offerings from Race IT.</p>
+					<p><a href="#" data-reveal-id="signupModal">Subscribe Today »</a><br> <a href="#">Past Newsletters »</a></p>
+				</div>
+			</div>
+		</div>
+	</section><!-- END #homepageContent -->
+	
+	<section id="featuredEvents">
+		<div class="container-fluid">
+			<div class="col-md-12">
+				<header>
+					<h3>Featured Events</h3> <a href="#">Search Events »</a>
+				</header>
+			</div>
+			<div class="col-sm-3 col-xs-6">
+				<div class="event">
+					<a href="#" target="_blank"><img src="images/featured/rnrsf-event-img.jpg" alt="event image" border="0"></a>
+					<div class="event-detail">
+						<h5>San Francisco Rock 'n' Roll Half Marathon 2015</h5>
+						<ul>
+							<li class="location">San Francisco, CA</li>
+							<li class="date">March 29, 2015</li>
+						</ul>
+						<a class="btn-left" href="#" target="_blank">Event Site</a> <a class="btn-right" href="#">Register</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-3 col-xs-6">
+				<div class="event">
+					<a href="#" target="_blank"><img src="images/featured/laurenskids-event-img.jpg" alt="event image" border="0"></a>
+					<div class="event-detail">
+						<h5>Walk In My Shoes 2015</h5>
+						<ul>
+							<li class="location">Across the State of Florida</li>
+							<li class="date">March 14 - April 22, 2015</li>
+						</ul>
+						<a class="btn-left" href="#" target="_blank">Event Site</a> <a class="btn-right" href="#">Register</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-3 col-xs-6">
+				<div class="event">
+					<a href="#" target="_blank"><img src="images/featured/monument10k-event-img.jpg" alt="event image" border="0"></a>
+					<div class="event-detail">
+						<h5>2015 Ukrop's Monument Avenue 10K</h5>
+						<ul>
+							<li class="location">Richmond, VA</li>
+							<li class="date">March 28, 2015</li>
+						</ul>
+						<a class="btn-left" href="#" target="_blank">Event Site</a> <a class="btn-right" href="#">Register</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-3 col-xs-6">
+				<div class="event">
+					<a href="#" target="_blank"><img src="images/featured/challengeknoxville-event-img.jpg" alt="event image" border="0"></a>
+					<div class="event-detail">
+						<h5>Challenge Knoxville</h5>
+						<ul>
+							<li class="location">Knoxville, TN</li>
+							<li class="date">May 17, 2015</li>
+						</ul>
+						<a class="btn-left" href="#" target="_blank">Event Site</a><a class="btn-right" href="#">Register</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer id="footer">
+		<section class="clients">
+			<ul>
+				<li><a href="#" target="_blank"><img src="images/logos/client-logo-ja.gif" alt="J &amp; A Racing" border="0"></a></li>
+				<li><a href="#" target="_blank"><img src="images/logos/client-logo-rr.gif" alt="Rock and Roll Marathon" border="0"></a></li>
+				<li><a href="#" target="_blank"><img src="images/logos/client-logo-portland.gif" alt="Portland Marathon" border="0"></a></li>
+				<li><a href="#" target="_blank"><img src="images/logos/client-logo-mcm.gif" alt="Marie Corps Marathon" border="0"></a></li>
+				<li><a href="#" target="_blank"><img src="images/logos/client-logo-sbackers.gif" alt="Sportsbackers" border="0"></a></li>
+				<li><a href="#" target="_blank"><img src="images/logos/client-logo-army.gif" alt="Army Ten Miler" border="0"></a></li>
+				<li><a href="#" target="_blank"><img src="images/logos/client-logo-challenge.gif" alt="Challenge Family" border="0"></a></li>
+				<li><a href="#" target="_blank"><img src="images/logos/client-logo-nf.gif" alt="North Face Endurance Challenge" border="0"></a></li>
+			</ul>
+		</section>
+		<section class="foot-social">
+			<div class="foot-social-outer">
+				<div class="foot-social-head">
+					<h5>Follow Us</h5>
+					<ul>
+						<li><a class="facebook" href="#" target="_blank">Facebook</a></li>
+						<li><a class="twitter" href="#" target="_blank">Twitter</a></li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		<section class="footMain">
+			<div class="col-md-2 footLogo">
+				<p><a href="/"><img src="images/foot-logo.png" alt="Race IT" border="0"></a></p>
+				<p class="copyright">Copyright © 2015, Race IT.<br>All Rights Reserved.</p>
+			</div>
+			<div class="col-md-5 countries">
+				<h5>&nbsp;30,000+</h5>
+				<p><em>Events</em></p>
+			</div>
+			<div class="col-md-5 footnav">
+				<div class="col-md-4">
+					<ul>
+						<li><a href="#">Event Organizers</a></li>
+						<li><a href="#">Create an Event</a></li>
+						<li><a href="#">Take a Tour</a></li>
+						<li><a href="#" target="_blank">Help</a></li>
+						<li><a href="#">About Us</a></li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<ul class="foot-small">
+						<li><a href="#">Login</a></li>
+						<li><a href="#">Create an Account</a></li>
+						<li><a href="#">Privacy Policy</a></li>
+						<li><a href="#">Child Privacy Policy</a></li>
+						<li><a href="#">Legal</a></li>
+						<li><a href="#">Contact Us</a></li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<script type="text/javascript">// <![CDATA[
+					var __dcid = __dcid || [];__dcid.push(["DigiCertClickID_Uy-FNy1Y", "7", "s", "white", "Uy-FNy1Y"]);(function(){var cid=document.createElement("script");cid.async=true;cid.src="//seal.digicert.com/seals/cascade/seal.min.js";var s = document.getElementsByTagName("script");var ls = s[(s.length - 1)];ls.parentNode.insertBefore(cid, ls.nextSibling);}());
+					// ]]></script><script async="" src="//seal.digicert.com/seals/cascade/seal.min.js"></script>
+					<!-- Begin DigiCert site seal HTML -->
+					<div id="DigiCertClickID_Uy-FNy1Y" data-language="en_US"><div id="DigiCertClickID_Uy-FNy1YSeal" style="text-decoration: none; text-align: center; display: block; vertical-align: baseline; font-size: 100%; font-style: normal; text-indent: 0px; line-height: 1; width: auto; margin: 0px auto; padding: 0px; border: 0px; position: relative; top: 0px; right: 0px; bottom: 0px; left: 0px; clear: both; float: none; cursor: default; background: transparent;"><img src="//seal.digicert.com/seals/cascade/?s=Uy-FNy1Y,7,s,raceit.com" alt="DigiCert Seal" style="text-decoration: none; text-align: center; display: block; vertical-align: baseline; font-size: 100%; font-style: normal; text-indent: 0px; line-height: 1; width: auto; margin: 0px auto; padding: 0px; border: 0px; position: relative; top: 0px; right: 0px; bottom: 0px; left: 0px; clear: both; float: none; cursor: pointer; background: transparent;"></div><span style="text-decoration: none; text-align: center; display: block; vertical-align: baseline; font-size: 100%; font-style: normal; text-indent: 0px; line-height: 1; width: auto; margin: 0px auto; padding: 0px; border: 0px; position: relative; top: 0px; right: 0px; bottom: 0px; left: 0px; clear: both; float: none; cursor: default; color: white; background: transparent;"><a href="http://www.digicert.com/unified-communications-ssl-tls.htm" style="text-decoration: none; text-align: center; display: inline; vertical-align: baseline; font-size: 100%; font-style: normal; text-indent: 0px; line-height: 1; width: auto; margin: 0px auto; padding: 0px; border: 0px; position: relative; top: 0px; right: 0px; bottom: 0px; left: 0px; clear: both; float: none; cursor: pointer; color: white; background: transparent;">UCC SSL</a></span></div>
+					<!-- End DigiCert site seal HTML -->
+				</div>
+			</div>
+		</section>
+	</footer>
+
 </body>
 </html>

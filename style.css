@@ -1,5 +1,5 @@
 /* IMPORT STYLE */
-@import url(http://fonts.googleapis.com/css?family=Raleway:700,600,100,400);
+@import url(http://fonts.googleapis.com/css?family=Raleway:700,600,100,300,400);
 
 /* GLOBAL STYLE */
 body {
@@ -13,6 +13,10 @@ body {
 	line-height: 1;
 	position: relative;
 	font-size: 17px;
+}
+img {
+	max-width: 100%;
+	height: auto;
 }
 a:hover {
 	text-decoration: none;
@@ -321,6 +325,7 @@ iframe {
 	position: relative;
 	top: -94px;
 	z-index: 90;
+	margin-bottom: -94px;
 }
 #horizontalTab ul {	
 	height: auto;
@@ -494,3 +499,299 @@ a.intro-CTA.second {
 	padding: 0;
 }
 
+/* HOMEPAGE CONTENT */
+.tabBox {
+	margin: 20px 0 0;
+	padding-left: .1em;
+	padding-right: 1.1em;
+}
+.box-content {
+	background: #f8f8f8;
+	padding: 22px 20px 8px 27px;
+	position: relative;
+	min-height: 360px;
+}
+.box-content h4 {
+	font-weight: 400;
+	color: #666;
+	font-size: 1.4em;
+	margin: 9px 0 0;
+}
+.box-content h5 {
+	color: #000;
+	font-family: Raleway,helvetica,arial,sans-serif;
+	font-size: 2.1em;
+	font-weight: 300;
+	line-height: 1em;
+	margin: 0 0 10px;
+	padding: 0;
+}
+.box-content p {
+	color: #666;
+	font-size: .9em!important;
+	line-height: 23px;
+	margin: 9px 0 11px;
+}
+.box-content p a {
+	font-weight: 700;
+	background: #eee;
+	padding: 5px 13px;
+	border-radius: 4px;
+	font-size: 15px;
+	margin: 4px 0 0;
+	display: inline-block;
+}
+.box-content ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0
+}
+.box-content ul li a {
+	border-bottom: 1px solid #ededed;
+	margin: 0;
+	padding: 12px 0;
+	font-size: .9em;
+	line-height: 14px!important;
+	font-weight: 600;
+	display: block;
+}
+
+/* FEATURED EVENTS */
+#featuredEvents {
+	background: url("images/events-bgd-texture.gif") repeat scroll 0 0 transparent;
+	border-bottom: 1px solid #e5e5e5;
+	border-top: 1px solid #e5e5e5;
+	padding: 0 0 20px;
+	margin: 20px 0 0;
+}
+#featuredEvents header h3 {
+	display: inline-block;
+	font-family: Raleway,Helvetica,Arial,sans-serif;
+	font-size: 1.6em;
+	font-weight: 300;
+	margin: 12px 0 0;
+	padding: 0;
+}
+#featuredEvents header a {
+	font-family: Raleway,Helvetica,Arial,sans-serif;
+	font-size: 17px;
+	font-weight: 600;
+	padding: 0 0 0 15px;
+	color: #7c9f2e;
+}
+#featuredEvents .event {
+	background: #FFF;
+	border-radius: 4px;
+	box-shadow: 0 0 5px 0 #CCC;
+	padding: 4px;
+	margin: 20px 0 0;
+}
+.event-detail {
+	background: none repeat scroll 0 0 #EEE;
+	overflow: auto;
+}
+.event-detail > h5 {
+	font-family: Raleway,Helvetica,Arial,sans-serif;
+	font-size: 19px;
+	font-weight: 400;
+	margin: 0 0 0 15px;
+	padding: 8px 0 0;
+	min-height: 90px;
+} 
+.event-detail > ul {
+	margin: 10px 0;
+	padding: 0;
+}
+.event-detail li {
+	border-top: 2px dotted #CCC;
+	color: #666;
+	display: list-item;
+	font-family: Raleway,Helvetica,Arial,sans-serif;
+	font-size: 15px;
+	list-style-type: none;
+	padding: 10px 0 10px 33px;
+}
+.event-detail li.location {
+	background: url("images/icons.png") no-repeat scroll 0 -234px transparent;
+	margin: 0;
+}
+.event-detail li.date {
+	background: url("images/icons.png") no-repeat scroll 0 -263px transparent;
+	margin: 0;
+}
+.btn-left, .btn-right {
+	font-family: Raleway,Helvetica,Arial,sans-serif;
+	font-size: 13px;
+	font-weight: 400;
+}
+.btn-right {
+	background: none repeat scroll 0 0 #7C9F2E;
+	color: #FFF;
+	display: block;
+	float: left;
+	padding: 8px;
+	text-align: center;
+	width: 50%;
+	border-radius: 0 0 4px;
+}
+.btn-left {
+	background: none repeat scroll 0 0 #7C9F2E;
+	color: #FFF;
+	display: block;
+	float: left;
+	padding: 8px;
+	text-align: center;
+	width: 50%;
+	border-right: 1px solid #EEE;
+	border-radius: 0 0 0 4px;
+}
+
+/* FOOTER STYLE */
+
+#footer {
+	background: url("images/footer-graphic.gif") repeat-x scroll center bottom #333;
+	padding: 0;
+	min-height: 750px;
+}
+.clients {
+	background: #FFF;
+	max-width: 100%;
+	padding: 10px 0;
+	border-top: 1px solid #E8E8E8;
+	
+}
+.clients ul {
+	margin: 0 auto;
+	text-align: center;
+	padding: 0;
+	text-align: center;
+}
+.clients ul li {
+	display: inline;
+	list-style-type: none;
+	margin: 0 0 0 30px;
+	padding: 0;
+}
+.foot-social-outer {
+	margin: 0 auto;
+	text-align: center;
+}
+.foot-social-head {
+	height: 55px;
+	margin: 0 auto;
+	padding: 12px 0 0;
+	text-align: center;
+}
+.foot-social-head h5 {
+	color: #FFF;
+	display: inline-block;
+	font-family: Raleway,Helvetica,Arial,sans-serif;
+	font-size: 20px;
+	font-weight: 600;
+	margin: 8px 0 0;
+}
+.foot-social-head ul {
+	display: inline-block;
+	line-height: 1.5em;
+	margin: 0 0 0 9px;
+	padding: 0;
+	height: 23px;
+	vertical-align: bottom;
+}
+.foot-social-head ul li {
+	list-style: none;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+.foot-social-head .facebook {
+	background: url("images/facebook-icon.png") no-repeat;
+	background-size: 23px 23px;
+	height: 23px;
+	width: 23px;
+	overflow: hidden;
+	text-indent: -99999px;
+	cursor: pointer;
+	display: inline-block;
+}
+.foot-social-head .twitter {
+	background: url("images/twitter-icon.png") no-repeat;
+	background-size: 23px 23px;
+	height: 23px;
+	width: 23px;
+	overflow: hidden;
+	text-indent: -99999px;
+	margin: 0 0 0 3px!important;
+	cursor: pointer;
+	display: inline-block;
+}
+.footMain {
+	border-bottom: 1px solid #666;
+	border-top: 1px solid #666;
+	margin: 20px 0 0;
+	overflow: auto;
+	padding: 20px 0 13px;
+}
+.footLogo {
+	margin: 21px 0 0;
+	text-align: center;
+}
+.copyright {
+	color: #FFF;
+	font-family: Raleway;
+	font-size: .6em;
+	font-weight: 300;
+	line-height: 1.4em;
+	margin: -6px 0 0;
+	padding: 0 12px 0 14px;
+	text-align: center;
+}
+.countries {
+	text-align: center;
+	margin: 0;
+	min-height: 116px;
+	padding-top: 21px;
+	border-right: 1px solid #666;
+	border-left: 1px solid #666;
+}
+.countries h5 {
+	color: #FFF;
+	font-family: arial,helvetica,sans-serif;
+	font-size: 55px;
+	font-weight: 400;
+	margin-bottom: 20px;
+	line-height: 50px;
+}
+.countries em {
+	font-family: Raleway,Helvetica,Arial,sans-serif,arial,helvetica,sans-serif;
+	color: #FFF;
+	font-style: normal;
+	margin: 0;
+	padding: 0;
+	font-size: 19px;
+}
+.footnav ul {
+	padding: 0;
+	margin: 0;
+}
+.footnav li {
+	display: list-item;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+.footnav li a {
+	color: #ccc;
+	font-family: Raleway,Helvetica,Arial,sans-serif,arial,helvetica,sans-serif;
+	font-size: 16px;
+	font-weight: 600;
+	padding: 0;
+	line-height: 1.97em;
+}
+.footnav .foot-small li a {
+	color: #666;
+	font-family: Raleway,Helvetica,Arial,sans-serif,arial,helvetica,sans-serif;
+	font-size: 13px;
+	font-weight: 600;
+	margin: 0;
+}
