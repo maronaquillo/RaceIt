@@ -309,7 +309,7 @@
 					<h3>Featured Events</h3> <a href="#">Search Events »</a>
 				</header>
 			</div>
-			<div class="col-xs-12 col-sm-6 col-md-3">
+			<div class="col-xs-6 col-sm-6 col-md-3">
 				<div class="event">
 					<a href="#" target="_blank"><img src="images/featured/rnrsf-event-img.jpg" alt="event image" border="0"></a>
 					<div class="event-detail">
@@ -323,7 +323,7 @@
 				</div>
 			</div>
 
-			<div class="col-xs-12 col-sm-6 col-md-3">
+			<div class="col-xs-6 col-sm-6 col-md-3">
 				<div class="event">
 					<a href="#" target="_blank"><img src="images/featured/laurenskids-event-img.jpg" alt="event image" border="0"></a>
 					<div class="event-detail">
@@ -337,7 +337,7 @@
 				</div>
 			</div>
 
-			<div class="col-xs-12 col-sm-6 col-md-3">
+			<div class="col-xs-6 col-sm-6 col-md-3">
 				<div class="event">
 					<a href="#" target="_blank"><img src="images/featured/monument10k-event-img.jpg" alt="event image" border="0"></a>
 					<div class="event-detail">
@@ -351,7 +351,7 @@
 				</div>
 			</div>
 
-			<div class="col-xs-12 col-sm-6 col-md-3">
+			<div class="col-xs-6 col-sm-6 col-md-3">
 				<div class="event">
 					<a href="#" target="_blank"><img src="images/featured/challengeknoxville-event-img.jpg" alt="event image" border="0"></a>
 					<div class="event-detail">
