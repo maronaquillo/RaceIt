@@ -14,8 +14,8 @@
  * @package WordPress
  */
 
-define('WP_HOME','http://localhost/');
-define('WP_SITEURL','http://localhost/');
+define('WP_HOME','http://localhost/raceit');
+define('WP_SITEURL','http://localhost/raceit');
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */

@@ -953,3 +953,141 @@ a.intro-CTA.second {
 	margin: 0;
 	
 }
+
+
+/* EVENTS PAGE STYLE */
+#event_form {
+	background: #ccc;
+	padding: 30px;
+	font-size: 12px;
+}
+
+.admin-tab {
+	background: #4795D1;
+	display: block;
+	margin: 12px 0 0px;
+	width: auto;
+	height: 56px;
+}
+.admin-tab h1 {
+	background: url("images/profile-icon.png") no-repeat scroll 0 0 transparent;
+	color: #FFFFFF ;
+	display: inline-block;
+	margin: 10px 0 0 28px;
+	padding: 12px 0 0 54px;
+	font-family: Raleway,Helvetica,Arial,sans-serif;
+	font-size: 1.9em;
+	font-weight: 600;
+	line-height: 1.1em;
+}
+.admin-tab .edit-profile {
+	background: #6CB2E7;
+	border-radius: 45px;
+	color: #FFFFFF;
+	font-weight: 400;
+	margin: 0 0 0 12px;
+	padding: 3px 18px;
+	text-decoration: none;
+	transition: all 0.2s linear 0s;
+	font-size: 1em;
+	position: relative;
+	top: -2px;
+}
+.admin-nav {
+	float: right;
+	margin: 0;
+	padding: 0;
+}
+.admin-nav ul {
+	margin: 32px 40px 0 0;
+}
+.admin-nav ul li {
+	display: inline;
+	list-style: none outside none;
+}
+.admin-nav ul li a{
+	background: none repeat scroll 0 0 #6CB2E7;
+	color: #086DBA;
+	font-family: 'Raleway', Helvetica, Arial, sans-serif;
+	font-size: 1.4em;
+	font-weight: 500;
+	margin: 0 4px 0 0;
+	padding: 15px 30px 6px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+.admin-nav ul li.active a {
+	background: #FFFFFF;
+}
+.admin-tab-content {
+	padding: 10px;
+	background: #fff;
+	margin-top: 0;
+}
+.admin-tab-content h1  {
+	font-family: Raleway,Helvetica,Arial,sans-serif;
+	font-size: 1.9em;
+	font-weight: 600;
+	line-height: 1.1em;
+	padding: 19px 0 0;
+	margin: 0 0 10px;
+	color: #000;
+}
+.myEvents-search {
+	background: none repeat scroll 0 0 #EEEEEE;
+	border-radius: 6px 6px 6px 6px;
+	margin: 0px 0px 20px;
+	max-width: 100%;
+	padding: 10px;
+}
+#OrgSearch, #EventSearch {
+	border: 1px solid #CCCCCC;
+	color: #767676;
+	display: inline-block;
+	float: left;
+	font-size: 1.3em;
+	margin: 7px 10px 0 5px;
+	padding: 11px;
+	width: 45%;
+	transition: all 0.15s ease-in-out 0s;
+	height: auto;
+	box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	font-family: 'Raleway', Helvetica, Arial, sans-serif;
+}
+.fieldhint {
+	clear: both;
+	color: #666666;
+	display: block;
+	font-size: 0.9em;
+	margin: 0;
+	padding: 5px 0 0 8px;
+	text-align: left;
+}
+ul.create-links {
+	overflow: auto;
+	padding: 0 0 0 6px;
+	width: 100%;
+	margin-top: 10px;
+}
+.create-links li {
+	list-style-type: none;
+	width: auto;
+}
+.create-links li:first-child {
+	padding-right: 27px;
+}
+.create-links a {
+	font-size: 1em;
+	font-weight: normal;
+	text-decoration: none;
+	text-transform: uppercase;
+	background: none repeat scroll 0 0 #F8F8F8;
+	margin: 2px 12px 0 0;
+	padding: 9px 23px !important;
+	display: inline-block;
+	float: left;
+	border-radius: 5px 5px 5px 5px;
+	transition: background-color 0.15s ease-in-out 0s;
+	border: 1px solid #DDDDDD;
+}
