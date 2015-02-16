@@ -38,7 +38,7 @@ $custom_meta_fields = array(
 
 add_action( 'init', 'create_post_type' );
 function create_post_type() {
-  register_post_type( 'orginizer_event',
+  register_post_type( 'event',
     array(
       'labels' => array(
         'name' => __( 'Events' ),
@@ -56,7 +56,7 @@ function add_custom_meta_box() {
         'custom_meta_box', // $id
         'Custom Meta Box', // $title 
         'show_custom_meta_box', // $callback
-        'orginizer_event', // $page
+        'event', // $page
         'normal', // $context
         'high'); // $priority
 }
