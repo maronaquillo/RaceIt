@@ -95,11 +95,44 @@
 				</div>
 				<div class="col-xs-12 col-md-3 account-box">
 					<div class="account-mobile">
+
+						<?php
+
+						if ( is_user_logged_in() ) {
+
+						?>
+
+						<div class="account-options">
+							<div id="ctl00_ctl00_Top_loginContainer" class="loginMiniFormContainer">
+						    <span id="ctl00_ctl00_Top_usernameDisplay"><a href="wp-admin">
+						   <?php
+						   global $current_user;
+				      	   get_currentuserinfo();
+				      	   echo $current_user->user_login;
+						   ?>
+
+						    </a></span>
+						    </div>
+						 <a href="<?php echo wp_logout_url(); ?>" id="ctl00_ctl00_Top_logLinkMiniForm" class="login">Logout</a>
+						</div>
+						<?php
+
+						} else {
+
+						?>
 						<div class="account-options">
 							<div id="ctl00_Top_loginContainer" class="loginMiniFormContainer"></div>
-					           	<a href="#" id="ctl00_Top_logLinkMiniForm" class="login">Login</a>
-								<a href="#" id="ctl00_Top_createLinkMiniForm" class="create">Create An Account</a>
-							</div>
+					           	<a href="my-events" id="ctl00_Top_logLinkMiniForm" class="login">Login</a>
+								<a href="create-an-account" id="ctl00_Top_createLinkMiniForm" class="create">Create An Account</a>
+						</div>
+
+						<?php
+						}
+						?>
+
+
+
+
 						</div>
 						<div class="search-event-drop">
 							<a href="" class="search-event-drop-link">Search Events</a>

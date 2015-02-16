@@ -943,7 +943,7 @@ a.intro-CTA.second {
 	font-size: 16px;
 	font-weight: 600;
 	padding: 0;
-	line-height: 1.97em;
+	line-height: 1.60em;
 }
 .footnav .foot-small li a {
 	color: #666;
@@ -1090,4 +1090,64 @@ ul.create-links {
 	border-radius: 5px 5px 5px 5px;
 	transition: background-color 0.15s ease-in-out 0s;
 	border: 1px solid #DDDDDD;
+}
+.loginMiniFormContainer span {
+	background:url("http://localhost/raceit/wp-content/themes/raceit/images/admin-img/loggedin-icon.png") no-repeat scroll 0 0 rgba(0,0,0,0);
+	margin: 0 8px 0 0;
+	padding: 2px 0 0 28px;
+	font-family: Raleway,Helvetica,Arial,sans-serif,arial,helvetica,sans-serif;
+	font-size:.8em!important;
+	color:#fff;
+}
+.loginMiniFormContainer {
+	display:inline-block;
+}
+.interior-head {
+	background:none repeat scroll 0 0 #555;
+}
+.interior-head h1{
+	font-family:Raleway,Helvetica,Arial,sans-serif !important;
+	font-size:2.2em;
+	font-weight:600;
+	line-height:1.1em;
+	padding-top:19px;
+	padding-left:19px;
+	padding-bottom:19px;
+	margin:0 0 10px;
+	color:#fff;
+}
+.large-12 .columns {
+	position:relative;
+	width:100%;
+}
+.column, .columns {
+	position:relative;
+	padding-left:0.9375em;
+	padding-right:0.9375em;
+	float:left;
+}
+.interior {
+	padding-top:19px;
+	padding-left:19px;
+	padding-right:19px;
+	padding-bottom:19px;
+}
+.interior p {
+	font-family:Raleway,Helvetica,Arial,sans-serif;
+	font-size:.9em;
+	font-weight:400;
+	line-height:1.5em;
+	padding:0;
+	color:#666;
+}
+.interior h5 {
+	font-family:"Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+	font-weight:bold;
+	font-style:normal;
+	color:#222;
+	text-rendering:optimizeLegibility;
+	margin-top:0.2em;
+	margin-bottom:0.5em;
+	line-height:1.2125em;
+	font-size:1.125em;
 }
