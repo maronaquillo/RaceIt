@@ -57,7 +57,7 @@
 					<?php
 						wp_nav_menu( 
 						  array( 
-						    'menu' => 'footer_nav', /* menu name */
+						    'menu' => 'Small Menu', /* menu name */
 						    'menu_class' => 'foot-small',
 						    'theme_location' => 'footer_nav2', /* where in the theme it's assigned */
 						    'container' => 'false', /* container class */
