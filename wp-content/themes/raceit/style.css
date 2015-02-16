@@ -1020,7 +1020,7 @@ a.intro-CTA.second {
 	background: #FFFFFF;
 }
 .admin-tab-content {
-	padding: 10px;
+	padding: 20px;
 	background: #fff;
 	margin-top: 0;
 }
@@ -1032,6 +1032,18 @@ a.intro-CTA.second {
 	padding: 19px 0 0;
 	margin: 0 0 10px;
 	color: #000;
+}
+.admin-tab-content h1 i {
+	color: red;
+	font-size: 12px;
+}
+.admin-tab-content h2 {
+	border-bottom: 1px solid #e8e8e8;
+	border-top: 3px solid #e8e8e8;
+	color: #999;
+	font-size: 2em;
+	font-weight: 300;
+	padding: 6px 0;
 }
 .myEvents-search {
 	background: none repeat scroll 0 0 #EEEEEE;
@@ -1082,12 +1094,97 @@ ul.create-links {
 	font-weight: normal;
 	text-decoration: none;
 	text-transform: uppercase;
-	background: none repeat scroll 0 0 #F8F8F8;
 	margin: 2px 12px 0 0;
 	padding: 9px 23px !important;
 	display: inline-block;
 	float: left;
 	border-radius: 5px 5px 5px 5px;
 	transition: background-color 0.15s ease-in-out 0s;
-	border: 1px solid #DDDDDD;
+	color: #fff;
+	
+}
+.steps ul {
+	list-style: outside none none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+.steps ul li {
+	display: inline-block;
+	width: 19%;
+	text-align: center;
+	border-right: 1px solid #e8e8e8;
+	margin: 7px 0 0;
+}
+.steps ul li:last-child {
+	border-right:  0 none;
+}
+.steps ul li img {
+	margin: 0 auto;
+	max-width: 52px !important;
+	padding: 6px 0 0;
+	width: 29%;
+}
+.steps ul li em {
+	color: #999999;
+	font-size: 1.2em;
+	font-style: normal;
+	margin: 9px 0 10px 0;
+	display: block;
+	text-align: center;
+}
+.steps ul li.active em {
+	color: #e77b6e;
+}
+#create-event {
+	border-top: 3px solid #4aa0e5;
+	padding: 0 0 25px 0;
+	margin-top: 20px;
+}
+#create-event h3 {
+	border-bottom: 1px solid #e8e8e8;
+	font-family: "Raleway",helvetica,arial,sans-serif;
+	font-size: 2em;
+	font-weight: 500;
+	margin: 0 0 19px;
+	padding: 20px 0 8px;
+}
+#create-event label {
+	display: block;
+	font-size: 1.2em;
+	font-weight: 300;
+	margin: 0;
+	padding: 0 0 5px;
+}
+#create-event input,
+#create-event select {
+	background-color: #fafafa;
+	border: 1px solid #cccccc;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	box-sizing: border-box;
+	color: rgba(0, 0, 0, 0.5);
+	display: inline-block;
+	font-size: 1em;
+	outline: 0 none;
+	padding: 0 8px !important;
+	transition: all 0.15s ease-in-out 0s;
+	height: 38px !important;
+	width: 90%;
+}
+.required {
+	font-size: 1em;
+	color: #e10613;
+	font-weight: normal;
+	margin: 0 0 0 2px;
+}
+#create-event fieldset {
+	margin-top: 10px;
+}
+#create-event legend {
+	padding-bottom: 10px;
+}
+#create-event td {
+	padding: 5px 10px;
 }
