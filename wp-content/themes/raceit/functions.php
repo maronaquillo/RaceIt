@@ -1,6 +1,21 @@
 <?php
 
 
+add_action( 'init', 'create_post_type' );
+function create_post_type() {
+  register_post_type( 'orginizer_event',
+    array(
+      'labels' => array(
+        'name' => __( 'Events' ),
+        'singular_name' => __( 'Event' )
+      ),
+      'public' => true,
+      'has_archive' => true,
+    )
+  );
+}
+
+
 // Clean up the WordPress Head
 if( !function_exists( "mv_head_cleanup" ) ) {  
   function mv_head_cleanup() {
