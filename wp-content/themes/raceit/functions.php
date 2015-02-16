@@ -1,5 +1,6 @@
 <?php
-include "organizer_event.php";
+include(TEMPLATEPATH . '/lib/organizer_event.php');
+
 // Clean up the WordPress Head
 if( !function_exists( "mv_head_cleanup" ) ) {  
   function mv_head_cleanup() {
