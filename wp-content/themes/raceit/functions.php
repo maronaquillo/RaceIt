@@ -1,5 +1,5 @@
 <?php
-include "organizer_event.php"
+include "organizer_event.php";
 // Clean up the WordPress Head
 if( !function_exists( "mv_head_cleanup" ) ) {  
   function mv_head_cleanup() {
