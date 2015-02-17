@@ -1,4 +1,3 @@
-
 <h1>Create Event <i>* Required Fields</i></h1>
 <h2>Step 1 Details</h2>
 
@@ -12,19 +11,19 @@
 	</ul>
 </div>
 
-<form id="create-event">
+<form id="create-event" method="post" action="<?php echo WP_SITEURL . '/events/?action=create' ?>">
 	<h3>Event Information</h3>
 	<div class="row">
 		<div class="col-md-6">
 			<div class="form-group">
 		    	<label for="event_name">Event Name: <span class="required">*</span></label>
-		    	<input type="text" class="form-control" name="event_name" placeholder="">
+		    	<input required type="text" class="form-control" name="event_name" placeholder="">
 		  	</div>
 		  	<div class="form-group">
 		    	<label for="event_date">Start date and time: <span class="required">*</span></label>
-		    	<input type="datetime" class="form-control" name="event_name" placeholder="">
+		    	<input required type="datetime-local" name="event_date" class="form-control">
 		  	</div>
-		  	<div class="form-group">
+		  	<div class="form-group">	
 		    	<label for="event_timezone">Event time zone : <span class="required">*</span></label>
 		    	<select class="form-control" name="event_timezone">
 		    		<option value="Dateline Standard Time">(GMT-12:00) International Date Line West</option>
@@ -136,20 +135,20 @@
 		    	<label for="event_type">Event Type: <span class="required">*</span></label>
 		    	<select class="form-control" name="event_type" placeholder="">
 					<option value="default">-- Select Event Type --</option>
-					<option value="3">Adventure Event</option>
-					<option value="46">Basketball Event</option>
-					<option value="48">Cheerleading Event</option>
-					<option value="2">Cycling Event</option>
-					<option value="50">Flag Football Event</option>
-					<option value="5">Membership</option>
+					<option value="1">Adventure Event</option>
+					<option value="2">Basketball Event</option>
+					<option value="3">Cheerleading Event</option>
+					<option value="4">Cycling Event</option>
+					<option value="5">Flag Football Event</option>
+					<option value="6">Membership</option>
 					<option value="7">Multisport Event</option>
-					<option value="21">Other Event</option>
-					<option value="1">Running Event</option>
-					<option value="45">Skiing Event</option>
-					<option value="49">Soccer Event</option>
-					<option value="4">Swimming Event</option>
-					<option value="51">Track &amp; Field Event</option>
-					<option value="6">Volunteer Event</option>
+					<option value="8">Other Event</option>
+					<option value="9">Running Event</option>
+					<option value="10">Skiing Event</option>
+					<option value="11">Soccer Event</option>
+					<option value="12">Swimming Event</option>
+					<option value="13">Track &amp; Field Event</option>
+					<option value="14">Volunteer Event</option>
 		    	</select>
 		  	</div>
 		</div>
@@ -157,7 +156,7 @@
 			<h4>Start location</h4>
 			<div class="form-group">
 		    	<label for="event_location">Event Location: <span class="required">*</span></label>
-		    	<input type="text" class="form-control" name="event_location" placeholder="">
+		    	<input required type="text" class="form-control" name="event_location" placeholder="">
 		  	</div>
 		  	<em class="required">* Address is required</em>
 		  	
@@ -167,7 +166,7 @@
 		  			<tbody>
 		  				<tr>
 		  					<td><label for="event_address1">Address line 1</label></td>
-		  					<td><input type="text" name="event_address1"></td>
+		  					<td><input required type="text" name="event_address1"></td>
 		  				</tr>
 		  				<tr>
 		  					<td><label for="event_address2">Address line 2</label></td>
@@ -175,7 +174,7 @@
 		  				</tr>
 		  				<tr>
 		  					<td><label for="event_city">City</label></td>
-		  					<td><input type="text" name="event_city"></td>
+		  					<td><input required type="text" name="event_city"></td>
 		  				</tr>
 		  				<tr>
 		  					<td><label for="event_state">State</label></td>
@@ -245,7 +244,7 @@
 		  					</td>
 		  				<tr>
 		  					<td><label for="event_province">Province:</label></td>
-		  					<td><input type="text" name="event_province"></td>
+		  					<td><input required type="text" name="event_province"></td>
 		  				</tr>
 		  				<tr>
 		  					<td><label for="event_postal" >Postal code</label></td>
@@ -502,6 +501,33 @@
 		  	</fieldset>
 		  	<button class="btn btn-primary btn-large">Publish</button>
 		</div>
+	</div>
+	<div class="event-optional">
+	    <h4>Optional Event Information</h4>
+	    <div class="row">
+	    	<div class="col-md-4">
+    			<div class="form-group">
+    		    	<label for="event_shortname">Event Short Name:</label>
+    		    	<input type="text" class="form-control" name="event_shortname" placeholder="">
+    		  	</div>
+    		  	<div class="form-group">
+    		    	<label for="event_url">Website URL:</label>
+    		    	<input type="url" class="form-control" name="event_url" placeholder="">
+    		  	</div>
+    		  	<div class="form-group">
+    		    	<label for="event_description">Short event Description:</label>
+    		    	<p class="desc">( 500 characters or less )</p>
+    		    	<textarea name="event_description" style="height:70px;"></textarea>
+    		  	</div>
+	    	</div>
+	    	<div class="col-md-8">
+	    		<div class="form-group">
+    		    	<label for="event_details">Event Details:</label>
+    		    	<textarea name="event_details" style="height:266px;"></textarea>
+    		    	<button type="submit" class="btn btn-primary btn-large pull-right">Publish</button>
+    		  	</div>
 
+	    	</div>
+	    </div>
 	</div>
 </form>
