@@ -1,4 +1,4 @@
-/*
+
 
 Theme Name: Race IT
 
@@ -999,7 +999,7 @@ a.intro-CTA.second {
 	padding: 0;
 }
 .admin-nav ul {
-	margin: 32px 40px 0 0;
+	margin: 29px 40px 0 0;
 }
 .admin-nav ul li {
 	display: inline;
@@ -1284,6 +1284,7 @@ ul.create-links {
 	font-size:1.125em;
 }
 
+/* EVENT LIST STYLE */
 .event-list { margin-top: 20px; }
 .event-list .panel-heading {
 	font-size: 20px;
@@ -1303,3 +1304,94 @@ ul.create-links {
 	font-size: 12px;
 }
 .event-list .trash { color: red; }
+
+/* LOGIN FORM STYLE */
+#login {
+	background: #ccc;
+	padding: 20px;
+} 
+#login .wrap {
+	background: #fff;
+	padding: 20px;
+}
+#login h1 {
+	color: #719629;
+	font-size: 25px;
+	margin: 10px 0 18px;
+	padding: 0;
+	font-weight: 400;
+	line-height: 1.1em;
+	font-family: Raleway,Helvetica,Arial,sans-serif;
+}
+#loginform input {
+	font-family: Raleway,Helvetica,Arial,sans-serif;
+	box-shadow: 0 0 3px #EEEEEE;
+	color: #555555;
+	display: block;
+	font-size: 16px;
+	margin: 0 0 6px;
+	padding: 20px;
+	width: 90%;
+	webkit-transition: -webkit-box-shadow 0.45s, border-color 0.45s ease-in-out;
+	-moz-transition: -moz-box-shadow 0.45s, border-color 0.45s ease-in-out;
+	transition: box-shadow 0.45s, border-color 0.45s ease-in-out;
+	background-color: white;
+	font-family: inherit;
+	border: 1px solid #cccccc;
+}
+#loginform label {
+	display: none;
+}
+#wp-submit {
+	background: #9ECB3B !important;
+	box-shadow: none;
+	color: #FFFFFF !important;
+	margin: 22px 0 7px 0 !important;
+	padding: 10px 0 !important;
+	text-transform: uppercase;
+	width: 42% !important;
+	transition: background 0.2s linear 0s;
+	cursor: pointer;
+	border: 0 !important;
+}
+#login .lost-password {
+	color: #719629 !important;
+	padding: 3px 0 1px;
+	border-bottom: 1px solid;
+	font-size: 12px;
+}
+#login .accountlogin {
+	background: #F3F3F3;
+	border-left: 1px solid #CCCCCC;
+	min-height: 283px;
+	padding: 18px;
+	text-align: center;
+}
+.accountlogin-details h2 {
+	font-family: 'Raleway', Helvetica, Arial, sans-serif, arial, helvetica, sans-serif;
+	font-size: 20px;
+	font-weight: normal;
+}
+.accountlogin-details .create-account {
+	background: #E1E1E1;
+	border: 1px solid #4DA1E1;
+	color: #000;
+	font-size: 18px;
+	margin: 0 0 19px;
+	padding: 6px 50px;
+	cursor: pointer;
+	transition: background 0.2s linear 0s;
+	display: inline-block;
+}
+.accountlogin-details .create-account:hover {
+	background: #fff;
+}
+.accountlogin-details p {
+	font-size: 11px;
+}
+.accountlogin-details .socialoptions {
+	border-top: 4px double #CCCCCC;
+	margin: 0;
+	padding: 15px 0 0;
+	text-align: left;
+}
