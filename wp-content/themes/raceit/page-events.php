@@ -3,6 +3,7 @@
 	$action = $_GET['action'];
 	global $wpdb;
 
+	// Create Event
 	if( isset($_POST) && $_POST && $action == "create" ) {
 		$FORM = array_map('htmlspecialchars',$_POST);
 		$date = date( 'Y-m-d G:i:s', strtotime( $FORM['event_date'] ) );
@@ -41,7 +42,8 @@
 		}
 		exit(0);
 	}
-
+	
+	// Update Event
 	if( isset($_POST) && $_POST && $action == "edit" ) {
 		$FORM = array_map('htmlspecialchars',$_POST);
 		$date = date( 'Y-m-d G:i:s', strtotime( $FORM['event_date'] ) );
@@ -82,6 +84,26 @@
 		exit(0);
 
 	}
+
+	// Delete Event
+	if( $_POST && $_POST['action'] == 'delete' ) {
+		$eventid = $_POST['eventid'];
+		$event_table = $wpdb->prefix . 'events';
+		$current_user = get_current_user_id();
+		$data['error'] = true;
+
+		$delete = $wpdb->query( "DELETE FROM $event_table WHERE `event_id` = $eventid AND `event_organizer` = $current_user" );
+
+		if( $delete ) {
+			$data['error'] = false;
+		} else {
+			$data['msg'] = $wpdb->last_error;
+		}
+
+		echo json_encode($data);
+		exit(0);
+	}
+
 
 	get_header();
 	

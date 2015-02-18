@@ -161,8 +161,8 @@ if( !function_exists("mv_theme_styles") ) {
         wp_enqueue_style( 'bootstrap' );
 
         // Bootstrap CSS
-        wp_register_style( 'bootstrap-datetimepicker', get_stylesheet_directory_uri() . '/lib/bootstrap/datetimepicker/css/bootstrap-datetimepicker.min.css' , array(), '1.0', 'all' );
-        wp_enqueue_style( 'bootstrap-datetimepicker' );
+       // wp_register_style( 'bootstrap-datetimepicker', get_stylesheet_directory_uri() . '/lib/bootstrap/datetimepicker/css/bootstrap-datetimepicker.min.css' , array(), '1.0', 'all' );
+       // wp_enqueue_style( 'bootstrap-datetimepicker' );
 
         wp_register_style( 'carousel-fade', get_stylesheet_directory_uri() . '/css/carousel-fade.css' , array(), '1.0', 'all' );
         wp_enqueue_style( 'carousel-fade' );
@@ -192,9 +192,16 @@ if( !function_exists( "mv_theme_js" ) ) {
     wp_register_script( 'bootstrap', get_template_directory_uri() . '/lib/bootstrap/js/bootstrap.min.js', array('jquery'), '1.2' );
     wp_register_script( 'site', get_template_directory_uri() . '/js/site.js', array('jquery'), '1.2' );
   
+    $user_data = array(
+      'id'   => get_current_user_id(),
+      'url'  => WP_SITEURL
+    );
+    wp_localize_script( 'site', 'user_data', $user_data );
+
+
     wp_enqueue_script('jquery');
     wp_enqueue_script( 'bootstrap' );
-    wp_enqueue_script( 'bootstrap-datetimepicker' );
+    //wp_enqueue_script( 'bootstrap-datetimepicker' );
     wp_enqueue_script( 'site' );
   }
 }

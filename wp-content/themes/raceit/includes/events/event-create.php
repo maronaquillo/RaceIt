@@ -21,7 +21,7 @@
 		  	</div>
 		  	<div class="form-group">
 		    	<label for="event_date">Start date and time: <span class="required">*</span></label>
-		    	<input required type="datetime-local" name="event_date" class="form-control">
+		    	<input placeholder="yyy-mm-ddThh:mm:ss" required type="datetime-local" name="event_date" class="form-control">
 		  	</div>
 		  	<div class="form-group">	
 		    	<label for="event_timezone">Event time zone : <span class="required">*</span></label>

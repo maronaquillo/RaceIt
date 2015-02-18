@@ -1283,3 +1283,23 @@ ul.create-links {
 	line-height:1.2125em;
 	font-size:1.125em;
 }
+
+.event-list { margin-top: 20px; }
+.event-list .panel-heading {
+	font-size: 20px;
+	font-weight: 700;
+}
+.event-list .list-group-item {
+	padding: 20px;
+	border-radius: 0;
+}
+.event-list .list-group-item a {
+	font-size: 14px;
+	font-weight: 400;
+}
+.event-list .glyphicon,
+.list-group-item .glyphicon { 
+	margin-right:5px; 
+	font-size: 12px;
+}
+.event-list .trash { color: red; }

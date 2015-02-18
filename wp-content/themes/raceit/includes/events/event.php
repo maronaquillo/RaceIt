@@ -1,4 +1,8 @@
 
+<?php 
+    $event_table = $wpdb->prefix . 'events';
+    $event_list = $wpdb->get_results( "SELECT `event_id`,`event_name` FROM $event_table WHERE `event_organizer` = 1 ORDER BY `event_id` DESC");
+?>
 <h1>My Event Beta</h1>
 <div id="event-form">
 	<div class="myEvents-search">
@@ -26,7 +30,7 @@
             	<option value="ArchivedEvents">Archived Events</option>
 
             </select>
-            <strong>Sort By</strong>&nbsp;
+            <strong>Sort By</strong>
             <select name="" id="" style="width:146px;">
             	<option selected="selected" value="Date_DESC">Date (Latest)</option>
             	<option value="Date_ASC">Date (Earliest)</option>
@@ -35,6 +39,29 @@
             	<option value="Organization_ASC">Organization (A-Z)</option>
             	<option value="Organization_DESC">Organization (Z-A)</option>
             </select>
+        </div>
+    </div>
+
+    <div class="panel panel-default event-list">
+        <div class="panel-heading">My Events</div>
+        <div class="panel-body">
+            <ul class="list-group">
+
+                <?php 
+                    foreach ( $event_list as $event ):
+                    $event_link = WP_SITEURL . '/events/?action=edit&eventid=' . $event->event_id; 
+                ?>
+                    
+                    <li class="list-group-item">
+                        <a href="<?php echo $event_link ?>"><?php echo $event->event_name ?></a>
+                        <div class="pull-right action-buttons">
+                            <a href="<?php echo $event_link ?>"><span class="glyphicon glyphicon-pencil"></span></a>
+                            <a href="#" data-id="<?php echo $event->event_id?>" class="trash"><span class="glyphicon glyphicon-trash"></span></a>
+                        </div>
+                    </li>
+
+                <?php endforeach;?>
+            </ul>
         </div>
     </div>
 </div>
