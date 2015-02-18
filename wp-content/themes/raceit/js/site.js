@@ -42,4 +42,8 @@ jQuery(document).ready(function($){
 		return false;
 	});
 
+	// Added placeholder to the login form
+	$('#loginform input[type="text"]').attr('placeholder', 'Username');
+	$('#loginform input[type="password"]').attr('placeholder', 'Password');
+
 });
