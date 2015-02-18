@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 16, 2015 at 10:13 AM
+-- Generation Time: Feb 18, 2015 at 07:21 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `wp_events` (
 `event_id` bigint(20) unsigned NOT NULL,
   `event_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `event_date` date NOT NULL,
+  `event_date` datetime NOT NULL,
   `event_timezone` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `event_location` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `event_address1` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -39,13 +39,13 @@ CREATE TABLE IF NOT EXISTS `wp_events` (
   `event_province` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `event_postal` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
   `event_country` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `event_shortname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `event_url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `event_description` text COLLATE utf8_unicode_ci NOT NULL,
-  `event_details` text COLLATE utf8_unicode_ci NOT NULL,
+  `event_shortname` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `event_url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `event_description` text COLLATE utf8_unicode_ci,
+  `event_details` text COLLATE utf8_unicode_ci,
   `event_organizer` bigint(20) unsigned NOT NULL,
   `event_type` bigint(20) unsigned NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Indexes for dumped tables
@@ -65,7 +65,7 @@ ALTER TABLE `wp_events`
 -- AUTO_INCREMENT for table `wp_events`
 --
 ALTER TABLE `wp_events`
-MODIFY `event_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+MODIFY `event_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- Constraints for dumped tables
 --
