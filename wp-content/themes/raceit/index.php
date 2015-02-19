@@ -243,6 +243,5 @@
 		</div>
 	</section>
 
-	<?php var_dump( get_events( array(1,2,3,4) ) ) ?>
 
 	<?php get_footer();?>

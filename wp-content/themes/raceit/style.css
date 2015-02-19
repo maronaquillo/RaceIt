@@ -1,6 +1,6 @@
 
 
-Theme Name: Race IT
+/*Theme Name: Race IT
 
 Theme URI: http://maverickswebmarketing.com
 
@@ -30,7 +30,7 @@ body {
 	color: #222222;
 	padding: 0;
 	margin: 0;
-	font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+	font-family: "Raleway", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 	font-weight: normal;
 	font-style: normal;
 	line-height: 1;
@@ -999,7 +999,7 @@ a.intro-CTA.second {
 	padding: 0;
 }
 .admin-nav ul {
-	margin: 29px 40px 0 0;
+	margin: 32px 40px 0 0;
 }
 .admin-nav ul li {
 	display: inline;
@@ -1363,7 +1363,7 @@ ul.create-links {
 #login .accountlogin {
 	background: #F3F3F3;
 	border-left: 1px solid #CCCCCC;
-	min-height: 283px;
+	min-height: 274px;
 	padding: 18px;
 	text-align: center;
 }
@@ -1394,4 +1394,66 @@ ul.create-links {
 	margin: 0;
 	padding: 15px 0 0;
 	text-align: left;
+}
+
+/* PARTICIPANT  */
+#participant-form label {
+	font-size: 16px;
+	font-weight: normal;
+}
+#participant-form input,
+#participant-form select {
+	padding: 16px;
+}
+#participant-form legend {
+	padding: 20px 0 10px;
+}
+#participant-form label span {
+	font-size: 12px;
+}
+#participant-form .check_exp {
+	vertical-align: middle;
+	margin-top: 20px;
+}
+#participant-form .check_exp span {
+	display: inline-block;
+	vertical-align: top;
+	padding-top: 11px;
+}
+#participant-form .check_exp input {
+	margin-right: 10px;
+}
+#participant-form .form-login .wrap {
+	background: #666;
+	padding: 10px 40px 20px;
+}
+#participant-form .form-login h2 {
+	border: 0;
+	color: #fff;
+	font-style: italic;
+}
+#participant-form .form-login label {
+	color: #fff;
+}
+
+#participant-form .form-login input {
+	box-shadow: none;
+	width: 100%;
+	border: 0;
+	border-radius: 3px;
+
+}
+#participant_submit {
+	background: #333;
+	color: #fff;
+	font-size: 16px;
+	margin-top: 10px;
+}
+#participant-form a.lost-password,
+#participant-form a.create-account {
+	color: #fff;
+	font-size: 12px;
+	padding-bottom: 1px;
+	border-bottom: 1px solid;
+	font-weight: 300;
 }

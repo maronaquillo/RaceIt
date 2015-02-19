@@ -10,6 +10,7 @@ get_header();
 			<div class="row">
 				<div class="col-md-7 wrap">
 					<h1>Login to your account</h1>
+					<?php echo do_shortcode('[pie_register_login]')?>
 					<?php $args = array(
 					        'echo'           => true,
 					        'redirect'       => site_url('/events'), 
@@ -27,13 +28,14 @@ get_header();
 					        'value_remember' => false
 					); ?> 
 
-					<?php wp_login_form( $args ); ?> 
+					<?php //wp_login_form( $args ); ?> 
 					<a href="<?php echo wp_lostpassword_url(); ?>" class="lost-password" title="Lost Password">Forgot Password</a>
+					<a href="<?php echo site_url('/create-an-acount')?>" class="create-account btn btn-default btn-large">Create Account</a>
 				</div>
 				<div class="col-md-5 accountlogin">
 					<div class="accountlogin-details">
 						<h2>Don't have a RaceIt account?</h2>
-						<a href="#" class="create-account">Create Account</a>
+						<a href="<?php echo site_url('/create-an-acount')?>" class="create-account">Create Account</a>
 							
 						<div class="socialoptions">
 							<p>Use your Facebook or Google account to create/login</p>
