@@ -361,10 +361,9 @@ class Bootstrap_walker extends Walker_Nav_Menu{
   }        
 }
 
-/**
-
-  Mavericks Custom Codes
-
+/** 
+* Mavericks Custom Codes
+*
 **/
 
 // Adding another custom role for participants and organizers
@@ -896,4 +895,22 @@ function getSnippet( $list = "" )
       return $list;
       break;
   }
+}
+
+
+function get_events( $event_ids = array() )
+{
+  if( !$event_ids && !is_array($event_ids))
+    return null;
+
+  global $wpdb;
+
+  return $wpdb->get_results( 
+        "
+         SELECT * FROM ".$wpdb->prefix."events
+         WHERE event_id IN(".implode(',', $event_ids).")
+        "
+  );
+
+
 }
