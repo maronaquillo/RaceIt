@@ -914,3 +914,8 @@ function get_events( $event_ids = array() )
 
 
 }
+
+
+function properize($string) {
+  return $string.'\''. ( substr( $string, -1 ) != 's' ? 's' : '' );
+}

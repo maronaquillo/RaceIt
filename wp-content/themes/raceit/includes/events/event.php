@@ -1,7 +1,8 @@
 
 <?php 
+    $user_ID = get_current_user_id();
     $event_table = $wpdb->prefix . 'events';
-    $event_list = $wpdb->get_results( "SELECT `event_id`,`event_name` FROM $event_table WHERE `event_organizer` = 1 ORDER BY `event_id` DESC");
+    $event_list = $wpdb->get_results( "SELECT `event_id`,`event_name` FROM $event_table WHERE `event_organizer` = $user_ID ORDER BY `event_id` DESC");
 ?>
 <h1>My Event Beta</h1>
 <div id="event-form">

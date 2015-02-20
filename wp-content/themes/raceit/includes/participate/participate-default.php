@@ -1,5 +1,10 @@
 
+<?php 
+    $event_id = isset( $_GET['event_id'] ) && (int)$_GET['event_id'] ? (int)$_GET['event_id'] : 0;
 
+    $event_table = $wpdb->prefix . 'events';
+    $event_list = $wpdb->get_results( "SELECT `event_id`,`event_name` FROM $event_table WHERE `event_organizer` = 1 ORDER BY `event_id` DESC");
+?>
 <h1>Participant Information</h1>
 <div id="participant-form">
     	<div class="participant-">
@@ -22,7 +27,52 @@
                             <label for="participant_email_address2"> <span class="required">*</span>Retype Email Address:</label>
                             <input required type="email" class="form-control" name="participant_email_address2" placeholder="">
                         </div>
-                        
+                        <div class="form-group">
+                            <label for="participant_classification"> <span class="required">*</span>Classification:</label>
+                            <select class="form-control" name="participant_classification">
+                                <option value="0">-- Select One --</option>
+                                <option value="1">Age Group</option>
+                                <option value="2">Athena (Women over 165 lbs)</option>
+                                <option value="3">Clydesdale (Men over 220 lbs)</option>
+                                <option value="4">Professional </option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="participant_membership_number"> <span class="required">*</span>Membership Number:</label>
+                            <input required type="text" class="form-control" name="participant_membership_number" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <p class="title">To purchase a USAT membership please select from one of the following options and click the purchase button.</p>
+                            
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" value="1" name="participant_membership_option">
+                                    Full Membership
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" value="2" name="participant_membership_option">
+                                    One Day Membership
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" value="3" name="participant_membership_option">
+                                    Upgrade Membership
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" value="4" name="participant_membership_option">
+                                    Renew Membership
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn">Purchase</button>
+                        </div>
+
                         <fieldset>
                             <legend>Participant Address</legend>
                             <div class="form-group">
@@ -51,6 +101,26 @@
                             <div class="form-group">
                                 <label for="participant_birthdate"><span class="required">*</span>Birthdate:</label>
                                 <input required type="date" class="form-control" name="participant_birthdate" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="participant_tshirt_size"> <span class="required">*</span>Classification:</label>
+                                <select class="form-control" name="participant_tshirt_size">
+                                    <option value="0">-- Select One --</option>
+                                    <option value="wxs">W XSmall</option>
+                                    <option value="ws">W Small</option>
+                                    <option value="wm">W Medium</option>
+                                    <option value="wl">W Large</option>
+                                    <option value="wxl">W X Large</option>
+                                    <option value="ms">M Small</option>
+                                    <option value="mm">M Medium</option>
+                                    <option value="ml">M Large</option>
+                                    <option value="mxl">M XLarge</option>
+                                    <option value="mxxl">M XX Large</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="participant_body_weight"><span class="required">*</span>Body Weight:</label>
+                                <input required type="text" class="form-control" name="participant_body_weight" placeholder="">
                             </div>
                             <div class="form-group">
                                 <label for="participant_econtact_name"><span class="required">*</span>Emergency Contact Name:</label>

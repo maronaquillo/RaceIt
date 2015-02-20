@@ -1,5 +1,4 @@
-
-<?php 
+ <?php 
     $event_id = isset( $_GET['event_id'] ) && (int)$_GET['event_id'] ? (int)$_GET['event_id'] : 0;
 
     $event_table = $wpdb->prefix . 'events';

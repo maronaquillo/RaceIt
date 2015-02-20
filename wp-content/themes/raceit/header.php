@@ -123,7 +123,7 @@
 						<div class="account-options">
 							<div id="ctl00_Top_loginContainer" class="loginMiniFormContainer"></div>
 					           	<a href="<?php echo site_url('/login')?>" id="ctl00_Top_logLinkMiniForm" class="login">Login</a>
-								<a href="<?php echo site_url('/create-an-acount')?>" id="ctl00_Top_createLinkMiniForm" class="create">Create An Account</a>
+								<a href="<?php echo site_url('/create-an-account')?>" id="ctl00_Top_createLinkMiniForm" class="create">Create An Account</a>
 						</div>
 
 						<?php

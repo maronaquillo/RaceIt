@@ -1,4 +1,14 @@
 <?php 
+
+	//Redirect if logged in user
+    if ( ! is_user_logged_in() )
+        wp_redirect( site_url() );
+
+    $user_ID = get_current_user_id();
+    $user = new WP_User( $user_ID );
+
+	if( !( $user->roles[0] == "administrator" || $user->roles[0] == "organizers" ) )
+		wp_redirect( site_url() );
 	
 	$action = $_GET['action'];
 	global $wpdb;
@@ -114,7 +124,7 @@
 	<div class="row">
 		<div class="col-md-offset-1 col-md-10">
 			<div class="admin-tab clearfix">
-				<h1>John Doe's Events</h1>
+				<h1><?php echo properize( $user->display_name ) ?> Events</h1>
 				<a href="#" class="edit-profile">Edit Profile</a>
 				<div class="admin-nav">
 					<ul>
