@@ -36,7 +36,7 @@
 		        'event_url'  		=>  $FORM['event_url'],
 		        'event_description' =>  $FORM['event_description'],
 		        'event_details'  	=>  $FORM['event_details'],
-		        'event_organizer'  	=>  1,
+		        'event_organizer'  	=>  $user_ID,
 		        'event_type'  		=>  $FORM['event_type'],
 		        
 		    ),
@@ -114,7 +114,6 @@
 		exit(0);
 	}
 
-
 	get_header();
 	
 
@@ -126,7 +125,7 @@
 			<div class="admin-tab clearfix">
 				<h1><?php echo properize( $user->display_name ) ?> Events</h1>
 				<a href="#" class="edit-profile">Edit Profile</a>
-				<div class="admin-nav">
+				<!-- <div class="admin-nav">
 					<ul>
 			            <li id="participant_link_tab">
 			            	<a href="#participant" data-toggle="tab" alt="My Events/Participant" id="participant_link">Participant</a>
@@ -135,7 +134,7 @@
 			            	<a href="#organizer" data-toggle="tab" alt="My Events/Organizer" id="organizer_link">Organizer</a>
 			            </li>
 	               	</ul>
-				</div>
+				</div> -->
 			</div>
 
 			<div class="admin-tab-content tab-content">

@@ -961,6 +961,19 @@ a.intro-CTA.second {
 	padding: 30px;
 	font-size: 12px;
 }
+#event_form .panel-heading h3 {
+	float: left;
+	margin-right: 20px;
+	font-size: 25px;
+	line-height: 2em;
+	font-weight: 700;
+}
+#event_form .sort-option {
+	float: left;
+	margin: 18px 20px 0;
+	font-size: 12px;
+	font-weight: 400;
+}
 
 .admin-tab {
 	background: #4795D1;
@@ -1060,7 +1073,7 @@ a.intro-CTA.second {
 	font-size: 1.3em;
 	margin: 7px 10px 0 5px;
 	padding: 11px;
-	width: 45%;
+	width: 95%;
 	transition: all 0.15s ease-in-out 0s;
 	height: auto;
 	box-sizing: content-box;
@@ -1101,7 +1114,6 @@ ul.create-links {
 	border-radius: 5px 5px 5px 5px;
 	transition: background-color 0.15s ease-in-out 0s;
 	color: #fff;
-	
 }
 .steps ul {
 	list-style: outside none none;

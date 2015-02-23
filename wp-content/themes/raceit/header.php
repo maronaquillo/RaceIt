@@ -104,7 +104,7 @@
 
 						<div class="account-options">
 							<div id="ctl00_ctl00_Top_loginContainer" class="loginMiniFormContainer">
-						    <span id="ctl00_ctl00_Top_usernameDisplay"><a href="wp-admin">
+						    <span id="ctl00_ctl00_Top_usernameDisplay"><a href="<?php echo site_url('/events' );?>">
 						   <?php
 						   global $current_user;
 				      	   get_currentuserinfo();
