@@ -103,12 +103,21 @@
 						?>
 
 						<div class="account-options">
+							<?php 
+								global $current_user;
+						      	get_currentuserinfo();
+							?>
+							
 							<div id="ctl00_ctl00_Top_loginContainer" class="loginMiniFormContainer">
-						    <span id="ctl00_ctl00_Top_usernameDisplay"><a href="<?php echo site_url('/events' );?>">
-						   <?php
-						   global $current_user;
-				      	   get_currentuserinfo();
-				      	   echo $current_user->user_login;
+							<?php if( $current_user->roles[0] != "participants" ):?>
+						    	<span id="ctl00_ctl00_Top_usernameDisplay"><a href="<?php echo site_url('/events' );?>">
+							<?php else: ?>
+								<span id="ctl00_ctl00_Top_usernameDisplay"><a href="<?php echo site_url('/participate/?action=view' );?>">
+							<?php
+							endif;   
+					      	echo $current_user->display_name;
+
+				
 						   ?>
 
 						    </a></span>

@@ -1,8 +1,11 @@
 
-<?php 
+<?php
+   
+    $query = $_GET['q']? "AND event_name LIKE '%". $_GET['q'] ."%'" : "";
+
     $user_ID = get_current_user_id();
     $event_table = $wpdb->prefix . 'events';
-    $event_list = $wpdb->get_results( "SELECT `event_id`,`event_name` FROM $event_table WHERE `event_organizer` = $user_ID ORDER BY `event_id` DESC");
+    $event_list = $wpdb->get_results( "SELECT `event_id`,`event_name` FROM $event_table WHERE `event_organizer` = $user_ID " . $query . " ORDER BY `event_id` DESC");
 ?>
 <h1>Event Dashboard</h1>
 <div id="event-form">
@@ -11,7 +14,9 @@
             <input type="text" class="edit-input ui-autocomplete-input" id="OrgSearch" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true" value="Organization Search">
         </div> -->
         <div id="eventTD">
-            <input type="text" id="EventSearch" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true" placeholder="Event Search">
+            <form target="<?php site_url('/events' );?>" >
+                <input name="q" value="<?php echo $_GET['q']?>" type="text" id="EventSearch" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true" placeholder="Event Search">
+            </form>
         </div>
         <div class="fieldhint">
             Use the enter key to submit your search

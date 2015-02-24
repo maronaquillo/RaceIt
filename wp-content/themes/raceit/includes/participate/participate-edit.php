@@ -1,10 +1,3 @@
-<?php if( $_GET['userid'] != get_current_user_id() ): ?>
-    <div class="alert alert-warning alert-dismissible" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      Opps! Profile Not Found
-    </div>
-<?php else: ?>
-
 <?php if( $_GET['added'] && $_GET['added'] == 1 ) :?>
     <div class="alert alert-success alert-dismissible" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -21,13 +14,21 @@
 <?php 
     $participant_table = $wpdb->prefix . 'participants';
     $participant_id = $_GET['participantid'];
-    $data = $wpdb->get_row( "SELECT * FROM $participant_table WHERE participant_id = $participant_id" );
+    $data = $wpdb->get_row( "SELECT * FROM $participant_table WHERE user_id = $user_id" );
     $event_ID = $_GET['eventid'];
 
 
     $birthdate = date('Y-m-d',strtotime($data->participant_birthdate));
 ?>
 
+<?php if( ! $data ): ?>
+
+<div class="alert alert-warning alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  Opps! Profile Not Found
+</div>
+
+<?php else: ?>
 <h1>Participant Information</h1>
 <div id="participant-form">
     	<div class="participant-">

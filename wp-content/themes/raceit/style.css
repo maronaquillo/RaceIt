@@ -1551,3 +1551,8 @@ ul.create-links {
 	position: relative;
 	top: -30px;
 }
+
+.table-user-information  {
+	margin: 20px;
+	border: 1px solid #ddd;
+}
