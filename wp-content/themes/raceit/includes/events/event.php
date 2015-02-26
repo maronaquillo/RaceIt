@@ -3,9 +3,46 @@
    
     $query = $_GET['q']? "AND event_name LIKE '%". $_GET['q'] ."%'" : "";
 
+    $show = "";
+    switch ($_GET['show']) {
+        case 'current':
+            $show = " AND DATE(event_date) = '". date('Y-m-d') ."'";
+            break;
+        case 'past':
+            $show = " AND DATE(event_date) < '". date('Y-m-d') ."'";
+            break;
+        case 'future':
+            $show = " AND DATE(event_date) > '". date('Y-m-d') ."'";
+            break;
+        
+        default:
+            $show = "";
+            break;
+    }
+
+    $sort = "";
+    switch ($_GET['sortby']) {
+        case 'date_asc':
+            $sort = " ORDER BY `event_date` ASC";
+            break;
+        case 'name_desc':
+            $sort = " ORDER BY `event_name` DESC";
+            break;
+        case 'name_asc':
+            $sort = " ORDER BY `event_name` ASC";
+            break;
+            
+        case 'date_desc':
+        default:
+            $sort = " ORDER BY `event_date` DESC";
+            break;
+    }
+
+
     $user_ID = get_current_user_id();
     $event_table = $wpdb->prefix . 'events';
-    $event_list = $wpdb->get_results( "SELECT `event_id`,`event_name` FROM $event_table WHERE `event_organizer` = $user_ID " . $query . " ORDER BY `event_id` DESC");
+    $event_list = $wpdb->get_results( "SELECT `event_id`,`event_name` FROM $event_table WHERE `event_organizer` = $user_ID " . $query . $show . $sort);
+
 ?>
 <h1>Event Dashboard</h1>
 <div id="event-form">
@@ -14,7 +51,7 @@
             <input type="text" class="edit-input ui-autocomplete-input" id="OrgSearch" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true" value="Organization Search">
         </div> -->
         <div id="eventTD">
-            <form target="<?php site_url('/events' );?>" >
+            <form>
                 <input name="q" value="<?php echo $_GET['q']?>" type="text" id="EventSearch" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true" placeholder="Event Search">
             </form>
         </div>
@@ -29,29 +66,49 @@
         <li><a href="#">Create Volunteer</a></li> -->
     </ul>
 
-    <div class="panel panel-default event-list">
+    <div class="panel panel-default event-list" id="events">
         <div class="panel-heading clearfix">
             <h3>My Events</h3>
             <div class="sort-option">
-                <div class="sortTools">
-                    <strong>Show</strong>
-                    <select name=""  id="" style="width:125px;">
-                        <option selected="selected" value="CurrentEvents">Current Events</option>
-                        <option value="FutureEvents">Future Events</option>
-                        <option value="PastEvents">Past Events</option>
-                        <option value="ArchivedEvents">Archived Events</option>
+                <form>
+                    <div class="sortTools">
+                        <strong>Show</strong>
+                        <select name="show" style="width:125px;">
+                            <option value="">All Events</option>
+                            <?php 
+                                $show_list = array(
+                                        'current'   => 'Current Events',
+                                        'future'    => 'Future Events',
+                                        'past'      => 'Past Events'
+                                    );
+                                foreach ($show_list as $show => $value) {
+                                    $selected = $_GET['show'] == $show ? "selected" : "";
+                                    echo( "<option value='{$show}' $selected>$value</option>");
+                                }
 
-                    </select>
-                    <strong>Sort By</strong>
-                    <select name="" id="" style="width:146px;">
-                        <option selected="selected" value="Date_DESC">Date (Latest)</option>
-                        <option value="Date_ASC">Date (Earliest)</option>
-                        <option value="Event_Name_ASC">Event Name (A-Z)</option>
-                        <option value="Event_Name_DESC">Event Name (Z-A)</option>
-                        <option value="Organization_ASC">Organization (A-Z)</option>
-                        <option value="Organization_DESC">Organization (Z-A)</option>
-                    </select>
-                </div>
+                            ?>
+
+                        </select>
+                        <strong>Sort By</strong>
+                        <select name="sortby" id="" style="width:146px;">
+                            <?php 
+                                $sort_list = array(
+                                        'date_desc'   => 'Date (Latest)',
+                                        'date_asc'    => 'Date (Earliest)',
+                                        'name_asc'    => 'Event Name (A-Z)',
+                                        'name_desc'   => 'Event Name (Z-A)'
+
+                                    );
+                                foreach ($sort_list as $sort => $value) {
+                                    $selected = $_GET['sortby'] == $sort ? "selected" : "";
+                                    echo( "<option value='{$sort}' $selected>$value</option>");
+                                }
+
+                            ?>
+                        </select>
+                        <input type="submit" class="btn btn-primary btn-sort" value="Go" />
+                    </div>
+                </form>
             </div>
         </div>
         <div class="panel-body">

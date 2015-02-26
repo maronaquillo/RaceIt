@@ -20,6 +20,11 @@
 
 ?>
 
+<ol class="breadcrumb">
+	<li><a href="<?php echo( site_url() ); ?>">Home</a></li>
+  	<li><a href="<?php echo( site_url('/events') ); ?>">Event Dashboard</a></li>
+  	<li class="active">Update Event</li>
+</ol>
 
 <h1>Update Event <i>* Required Fields</i></h1>
 

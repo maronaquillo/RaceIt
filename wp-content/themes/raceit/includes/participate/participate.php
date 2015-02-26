@@ -5,7 +5,22 @@
     
     if( isset(  $_GET['eventid'] ) &&  $_GET['eventid'] ) :
         $event_ID = $_GET['eventid'];
+
+        $info = $wpdb->get_row( "SELECT * FROM ". $wpdb->prefix ."participants
+                                 WHERE user_id = $current_user_ID 
+                                " );
+
+        $has_event = $wpdb->get_row( "SELECT * FROM ". $wpdb->prefix ."participants
+                                      WHERE event_id = $event_ID AND user_id = $current_user_ID
+                                    " );
+    if( $has_event ):
 ?>
+<div class="alert alert-danger alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  You are already registered in this event!.
+</div>
+<?php else: ?>
+    
 <h1>Participant Information</h1>
 <div id="participant-form">
         <div class="participant-">
@@ -32,19 +47,19 @@
 
                         <div class="form-group">
                             <label for="participant_first_name"><span class="required">*</span>First Name:</label>
-                            <input required type="text" class="form-control" name="participant_first_name" placeholder="">
+                            <input required type="text" class="form-control" name="participant_first_name" value="<?php echo($info->participant_first_name) ?>">
                         </div>
                         <div class="form-group">
                             <label for="participant_last_name"> <span class="required">*</span>Last Name:</label>
-                            <input required type="text" class="form-control" name="participant_last_name" placeholder="">
+                            <input required type="text" class="form-control" name="participant_last_name" value="<?php echo($info->participant_last_name) ?>">
                         </div>
                         <div class="form-group">
                             <label for="participant_email"> <span class="required">*</span>Email Address:</label>
-                            <input required type="email" class="form-control" name="participant_email" placeholder="">
+                            <input required type="email" class="form-control" name="participant_email" value="<?php echo($info->participant_email) ?>">
                         </div>
                         <div class="form-group">
                             <label for="participant_email_address2"> <span class="required">*</span>Retype Email Address:</label>
-                            <input required type="email" class="form-control" name="participant_email_address2" placeholder="">
+                            <input required type="email" class="form-control" name="participant_email_address2">
                         </div>
                         
                         
@@ -52,38 +67,38 @@
                             <legend>Participant Address</legend>
                             <div class="form-group">
                                 <label for="participant_address1"><span class="required">*</span>Address Line 1:</label>
-                                <input required type="text" class="form-control" name="participant_address1" placeholder="">
+                                <input required type="text" class="form-control" name="participant_address1" value="<?php echo($info->participant_address1) ?>">
                             </div>
                             <div class="form-group">
                                 <label for="participant_address2">Address Line 2:</label>
-                                <input required type="text" class="form-control" name="participant_address2" placeholder="">
+                                <input required type="text" class="form-control" name="participant_address2" value="<?php echo($info->participant_address2) ?>">
                             </div>
                             <div class="form-group">
                                 <label for="participant_city"><span class="required">*</span>City:</label>
-                                <input required type="text" class="form-control" name="participant_city" placeholder="">
+                                <input required type="text" class="form-control" name="participant_city" value="<?php echo($info->participant_city) ?>">
                             </div>
                             <div class="form-group">
                                 <label for="participant_state">State:</label>
                                 <select class="form-control" name="participant_state">
-                                    <?php showSelected( getSnippet('state') ); ?>
+                                    <?php showSelected( getSnippet('state'), $info->participant_state ); ?>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="participant_phone">Phone Number:</label>
-                                <input type="text" class="form-control" name="participant_phone" placeholder="">
+                                <input type="text" class="form-control" name="participant_phone" value="<?php echo($info->participant_phone) ?>">
                                 <p class="desc">(Example: 555-555-5555)</p>
                             </div>
                             <div class="form-group">
                                 <label for="participant_birthdate"><span class="required">*</span>Birthdate:</label>
-                                <input required type="date" class="form-control" name="participant_birthdate" placeholder="">
+                                <input required type="date" class="form-control" name="participant_birthdate" value="<?php echo($info->participant_birthdate) ?>">
                             </div>
                             <div class="form-group">
                                 <label for="participant_econtact_name"><span class="required">*</span>Emergency Contact Name:</label>
-                                <input required type="text" class="form-control" name="participant_econtact_name" placeholder="">
+                                <input required type="text" class="form-control" name="participant_econtact_name" value="<?php echo($info->participant_econtact_name) ?>">
                             </div>
                             <div class="form-group">
                                 <label for="participant_econtact_number"><span class="required">*</span>Emergency Contact Number:</label>
-                                <input required type="text" class="form-control" name="participant_econtact_number" placeholder="">
+                                <input required type="text" class="form-control" name="participant_econtact_number" value="<?php echo($info->participant_econtact_number) ?>">
                             </div>
                         </fieldset>
                         <input type="hidden" name="event_id" value="<?php echo $event_ID ?>">
@@ -121,7 +136,7 @@
         </div>
    
 </div>
-
+<?php endif; ?>
 <?php else: ?>
     <div class="alert alert-danger alert-dismissible" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>

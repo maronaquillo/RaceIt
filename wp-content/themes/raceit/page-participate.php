@@ -55,12 +55,11 @@
 			        'event_id'  					=>  $FORM['event_id'],
 			        'user_id'						=>	$user_id
 			    ),
-			    array( '%s','%s','%s','%s','%s','%s','%d','%s','%s','%s','%d' )
+			    array( '%s','%s','%s','%s','%s','%s','%s','%d','%s','%s','%s','%d','%d' )
 			);
 		}
 		if( $data ) {
-
-			$location = WP_SITEURL . '/participate/?action=edit&added=1&userid='. $user_id .'&eventid=' . $FORM['event_id'] . '&participantid=' . $wpdb->insert_id ;
+			$location = WP_SITEURL . '/participate/?action=view&added=1';
 			wp_redirect( $location);
 		} else {
 			echo "Unable to add Data <br>";
@@ -92,7 +91,7 @@
 			        'user_id'						=>	$current_user_ID 
 			    ),
 				array( 'participant_id' => $FORM['participant_id'] ), 
-				array( '%s','%s','%s','%s','%s','%s','%s','%d','%s','%s','%d' ),
+				array( '%s','%s','%s','%s','%s','%s','%s','%d','%s','%s','%d','%d','%d' ),
 				array( '%d' ) 
 		);
 

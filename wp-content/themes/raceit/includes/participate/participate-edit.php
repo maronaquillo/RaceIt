@@ -13,7 +13,7 @@
 <?php endif; ?>
 <?php 
     $participant_table = $wpdb->prefix . 'participants';
-    $participant_id = $_GET['participantid'];
+    $user_id = get_current_user_id();
     $data = $wpdb->get_row( "SELECT * FROM $participant_table WHERE user_id = $user_id" );
     $event_ID = $_GET['eventid'];
 
@@ -29,6 +29,11 @@
 </div>
 
 <?php else: ?>
+<ol class="breadcrumb">
+  <li><a href="<?php echo( site_url() ); ?>">Home</a></li>
+    <li><a href="<?php echo( site_url('/participate/?action=view') ); ?>">Your Dashboard</a></li>
+    <li class="active">Edit Profile</li>
+</ol>
 <h1>Participant Information</h1>
 <div id="participant-form">
     	<div class="participant-">

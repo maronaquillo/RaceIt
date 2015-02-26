@@ -124,13 +124,13 @@
 		<div class="col-md-offset-1 col-md-10">
 			<div class="admin-tab clearfix">
 				<h1><?php echo properize( $user->display_name ) ?> Events</h1>
-				<a href="#" class="edit-profile">Edit Profile</a>
+				<a href="<?php echo( site_url('profile/?edit_user=' . $user_ID ) ); ?>" class="edit-profile">Edit Profile</a>
 				<!-- <div class="admin-nav">
 					<ul>
 			            <li id="participant_link_tab">
 			            	<a href="#participant" data-toggle="tab" alt="My Events/Participant" id="participant_link">Participant</a>
 			            </li>
-			            <li id="organizer_link_tab" class="active">
+			            <li id="organizer_lprofile/?edit_user=i . $user_IDnkta;b" class="active">
 			            	<a href="#organizer" data-toggle="tab" alt="My Events/Organizer" id="organizer_link">Organizer</a>
 			            </li>
 	               	</ul>
