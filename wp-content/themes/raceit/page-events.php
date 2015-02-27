@@ -2,7 +2,7 @@
 
 	//Redirect if logged in user
     if ( ! is_user_logged_in() )
-        wp_redirect( site_url() );
+        wp_redirect( site_url('/login') ); exit();
 
     $user_ID = get_current_user_id();
     $user = new WP_User( $user_ID );
@@ -46,6 +46,7 @@
 		if( $data ) {
 			$location = WP_SITEURL . '/events/?action=edit&added=1&eventid=' . $wpdb->insert_id ;
 			wp_redirect( $location);
+			exit();
 		} else {
 			echo "Unable to add Data <br>";
 			echo $wpdb->last_error;
@@ -125,16 +126,16 @@
 			<div class="admin-tab clearfix">
 				<h1><?php echo properize( $user->display_name ) ?> Events</h1>
 				<a href="<?php echo( site_url('profile/?edit_user=' . $user_ID ) ); ?>" class="edit-profile">Edit Profile</a>
-				<!-- <div class="admin-nav">
+				<div class="admin-nav">
 					<ul>
 			            <li id="participant_link_tab">
-			            	<a href="#participant" data-toggle="tab" alt="My Events/Participant" id="participant_link">Participant</a>
+			            	<a href="<?php echo(site_url( '/participate?action=view' )); ?>" data-toggle="" alt="My Events/Participant" id="participant_link">Participated Events</a>
 			            </li>
-			            <li id="organizer_lprofile/?edit_user=i . $user_IDnkta;b" class="active">
-			            	<a href="#organizer" data-toggle="tab" alt="My Events/Organizer" id="organizer_link">Organizer</a>
+			            <li id="organizer_tab" class="active">
+			            	<a href="#organizer" data-toggle="tab" alt="My Events" id="organizer_link">Organizer</a>
 			            </li>
 	               	</ul>
-				</div> -->
+				</div>
 			</div>
 
 			<div class="admin-tab-content tab-content">

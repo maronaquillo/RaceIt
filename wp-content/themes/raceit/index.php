@@ -77,8 +77,8 @@
 								<h2>Get Registered</h2>
 								<h3>From Start to Finish</h3>
 								<p>Create your free account here! Make your registrations quick and easy with auto-fill options and manage registrations for multiple races. Keep up with all of your event accomplishments on your personal profile and stay on track from start to finish!</p>
-								<a class="intro-CTA" href="/MyEvents/CreateAccount.aspx">Create an account</a> <a class="intro-CTA second" href="http://raceit.com/search3/default.aspx">Find an Event</a>
-								<p class="introCTA">Have an account? <a href="/MyEvents/">Login Now</a></p>
+								<a class="intro-CTA" href="create-an-account">Create an account</a> <a class="intro-CTA second" href="#">Find an Event</a>
+								<p class="introCTA">Have an account? <a href="login">Login Now</a></p>
 								<p class="introCall">or, Call us today <strong>866-972-2348</strong></p>
 							</div>
 						</div>
@@ -99,7 +99,7 @@
 								<h3>From Start to Finish</h3>
 								<p>Race IT provides premium online solutions for event directors across the country. Race IT utilizes a unique combination of strategic thinking, creative vision, and technological experience to provide powerful online registration features that are intuitive and easy to use.</p>
 								<a class="intro-CTA" href="/signupfordemo.aspx">Request Demo</a> <a class="intro-CTA second linkedIn" href="https://www.linkedin.com/company/race-it" target="_blank">Connect on LinkedIn</a>
-								<p class="introCTA">Get started now! <a href="/MyEvents/">Create your first event</a></p>
+								<p class="introCTA">Get started now! <a href="events?action=create">Create your first event</a></p>
 								<p class="introCall">or, Call us today <strong>866-972-2348</strong></p>
 							</div>
 						</div>
@@ -122,8 +122,8 @@
 								<h2>Perfect Partner</h2>
 								<h3>From Start to Finish</h3>
 								<p>Race IT provides premium online solutions for timers across the country. We provide a turn key system so that you can offer branded registration to your event partners. We support live split times from all major timing companies, including: Chronotrack, ChampionChip, Ipico, WinningTime and others.</p>
-								<a class="intro-CTA" href="/signupfordemo.aspx">Request a Demo</a>
-								<p class="introCTA">Have an account? <a href="/MyEvents/">Login Now</a></p>
+								<a class="intro-CTA" href="#">Request a Demo</a>
+								<p class="introCTA">Have an account? <a href="login">Login Now</a></p>
 								<p class="introCall">or, Call us today <strong>866-972-2348</strong></p>
 							</div>
 						</div>
@@ -185,21 +185,29 @@
 					<h3>Featured Events</h3> <a href="#">Search Events »</a>
 				</header>
 			</div>
+			<?php 
+				$event_list = $wpdb->get_results( "SELECT * FROM ". $wpdb->prefix ."events" );
+
+				foreach ($event_list as $event):
+			?>
+
 			<div class="col-xs-6 col-sm-6 col-md-3">
 				<div class="event">
-					<a href="#" target="_blank"><img src="<?php echo get_template_directory_uri() ?>/images/featured/rnrsf-event-img.jpg" alt="event image" border="0"></a>
+					<a href="<?php echo $event->event_url? $event->event_url : "#"; ?>" target="_blank"><img src="http://placehold.it/400x179&text=Event Image"></a>
 					<div class="event-detail">
-						<h5>San Francisco Rock 'n' Roll Half Marathon 2015</h5>
+						<h5><?php echo($event->event_name) ?></h5>
 						<ul>
-							<li class="location">San Francisco, CA</li>
-							<li class="date">March 29, 2015</li>
+							<li class="location"><?php echo($event->event_location. ", ". $event->event_state) ?></li>
+							<li class="date"><?php echo( date( 'F d, Y', strtotime($event->event_date) ) ) ?></li>
 						</ul>
-						<a class="btn-left" href="#" target="_blank">Event Site</a> <a class="btn-right" href="#">Register</a>
+						<a class="btn-left" href="<?php echo $event->event_url? $event->event_url : "#"; ?>" target="_blank">Event Site</a> <a class="btn-right" href="<?php echo( site_url('/participate?eventid='.$event->event_id) ) ?>">Register</a>
 					</div>
 				</div>
 			</div>
 
-			<div class="col-xs-6 col-sm-6 col-md-3">
+			<?php endforeach; ?>
+
+			<!-- <div class="col-xs-6 col-sm-6 col-md-3">
 				<div class="event">
 					<a href="#" target="_blank"><img src="<?php echo get_template_directory_uri() ?>/images/featured/laurenskids-event-img.jpg" alt="event image" border="0"></a>
 					<div class="event-detail">
@@ -239,7 +247,7 @@
 						<a class="btn-left" href="#" target="_blank">Event Site</a><a class="btn-right" href="#">Register</a>
 					</div>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</section>
 

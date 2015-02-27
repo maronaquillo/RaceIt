@@ -2,6 +2,19 @@
 /*
 Template Name: Mavericks My Events - Login Page
 */
+
+if( is_user_logged_in() ) {
+	$current_user   = wp_get_current_user();
+    $role_name      = $current_user->roles[0];
+    var_dump($role_name);
+
+    if('participants' == $role_name ) 
+    	wp_redirect( site_url( '/participate?action=view' ) );
+    else
+    	wp_redirect( site_url( '/events' ) );
+    exit();
+}
+
 get_header(); 
 ?>
 <section id="login">
@@ -13,8 +26,8 @@ get_header();
 					<?php //echo do_shortcode('[pie_register_login]')?>
 					<?php $args = array(
 					        'echo'           => true,
-					        'redirect'       => site_url('/events'), 
 					        'form_id'        => 'loginform',
+					        //'redirect'       => site_url('/login'), 
 					        'label_username' => __( '' ),
 					        'label_password' => __( '' ),
 					        'label_remember' => __( 'Remember Me' ),

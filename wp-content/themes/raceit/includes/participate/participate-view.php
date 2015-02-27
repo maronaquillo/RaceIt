@@ -128,6 +128,19 @@
                                     ON p.event_id = e.event_id AND p.user_ID = $user_ID " . $query . $sort
                                      );
 ?>
+    <ol class="breadcrumb">
+        <li><a href="<?php echo( site_url() ); ?>">Home</a></li>
+        <?php 
+            $current_user   = wp_get_current_user();
+            $role_name      = $current_user->roles[0];
+
+            if ('participants' != $role_name):
+        ?>
+          <li><a href="<?php echo( site_url('/events') ); ?>">Event Dashboard</a></li>
+        <?php endif; ?>
+        
+        <li class="active">Participated Events</li>
+    </ol>
     <div class="myEvents-search">
         <div id="eventTD">
             <form target="<?php site_url( "/participate" );?>" method="GET" >

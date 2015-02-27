@@ -968,7 +968,7 @@ a.intro-CTA.second {
 	line-height: 2em;
 	font-weight: 700;
 }
-#event_form .sort-option {
+.sort-option {
 	float: left;
 	margin: 18px 20px 0;
 	font-size: 12px;
@@ -1587,4 +1587,73 @@ ul.create-links {
 	border-radius: 2px;
 	vertical-align: top;
 	height: 18px;
+}
+
+/* SEARCH PAGE STYLE */
+.search-form {
+	background: #ccc;
+}
+.search-form .wrap {
+	background: #fff;
+	clear: both;
+	padding: 20px;
+}
+.search-form .search-filter {
+	background: #ccc;
+	font-size: 12px;
+}
+.search-form .search-filter ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+.search-form .search-filter ul li a {
+	margin-bottom: 10px;
+	color: #337AB7;
+	font-size: 14px;
+	padding-bottom: 1px;
+	border-bottom: 1px solid;
+	display: inline-block;
+}
+.search-form .search-filter input[type="date"] {
+	padding: 4px;
+}
+
+.pagination {
+	margin: 10px 0 0  0;
+}
+.pagination li a {
+	padding: 5px 10px;
+	margin: 0;
+	border: 0;
+}
+.event-list {
+	clear: both;
+}
+.event-list-item {
+	padding: 10px 0;
+	border-top: 1px dashed #ddd;
+}
+.event-list-item:last-child {
+	border-bottom: 1px dashed #ddd;
+}
+.event-list-item .item-thumb {
+	float: left;
+	margin-right: 10px;
+}
+.event-list-item .item-details {
+	float: left;
+	overflow: hidden;
+}
+.event-list-item .item-details h3 {
+	margin: 5px 0 10px;
+	font-size: 18px;
+	font-weight: 700;
+}
+.event-list-item .item-date {
+	margin: 10px 0 5px;
+}
+.event-list-item .item-location {
+	text-align: right;
+	margin: 5px 0 20px;
 }

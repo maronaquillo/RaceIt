@@ -496,12 +496,10 @@ function redirect_users_by_role() {
 } // cm_redirect_users_by_role
 add_action( 'admin_init', 'redirect_users_by_role' );
 
-function login_redirect_by_role() {
-  $current_user   = wp_get_current_user();
-  $role_name      = $current_user->roles[0];
- 
-  if ( 'participants' === $role_name ) {
-      return site_url('/participate/?action=view');
+
+function remove_admin_bar() {
+  if (!current_user_can('administrator') && !is_admin()) {
+    show_admin_bar(false);
   }
 }
-add_filter('login_redirect', 'login_redirect_by_role');
+add_action('after_setup_theme', 'remove_admin_bar');

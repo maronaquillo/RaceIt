@@ -122,7 +122,7 @@
 
 						    </a></span>
 						    </div>
-						 <a href="<?php echo wp_logout_url(); ?>" id="ctl00_ctl00_Top_logLinkMiniForm" class="login">Logout</a>
+						 <a href="<?php echo wp_logout_url( site_url() ); ?>" id="ctl00_ctl00_Top_logLinkMiniForm" class="login">Logout</a>
 						</div>
 						<?php
 
