@@ -503,3 +503,22 @@ function remove_admin_bar() {
   }
 }
 add_action('after_setup_theme', 'remove_admin_bar');
+
+function generateQuery($newKey, $newVal) {
+    $params = $_GET;
+    $params[$newKey] = $newVal;
+    return "?" . http_build_query($params);
+}
+
+function getURLVariable($exclude = array()){
+  $input = "";
+
+  foreach ($_GET as $key => $value) {
+    if( in_array($key, $exclude) )
+      continue;
+
+    $input .= "<input type='hidden' name='{$key}' value='{$value}'>";
+  }
+
+  return $input;
+}
