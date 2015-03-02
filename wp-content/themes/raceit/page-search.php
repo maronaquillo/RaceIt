@@ -1,19 +1,20 @@
 <?php
 
 get_header(); 
-$page = 0;
-$perpage = 0;
-
+$pagenum = 1;
+$perpage = 20;
+$limit = "";
+$q = "";
+$sortby = "";
 extract($_GET);
 
-$start = $page == 1 ? ($page - 1) * $perpage : 0;
 
 switch ($sortby) {
 	case 'date_asc':
 	    $sort = " ORDER BY `event_date` ASC";
 	    break;
 	case 'name_desc':
-	    $sort = " ORDER BY `event_name` DESC";
+	    $sort = " ORDER BY `event_name` DESC";	
 	    break;
 	case 'name_asc':
 	    $sort = " ORDER BY `event_name` ASC";
@@ -25,16 +26,39 @@ switch ($sortby) {
 	    break;	
 }
 
+
+$query = " event_name LIKE '%". $q ."%'";
+
 $event_list = $wpdb->get_results("SELECT * 
-								  FROM ". $wpdb->prefix ."events" . $sort . " LIMIT $start, $perpage");
+								  FROM ". $wpdb->prefix ."events WHERE" . $query . $sort);
+
+$event_num = $wpdb->num_rows;
+$lastpage =  ceil($event_num / $perpage );
+
+	if ($pagenum < 1) {
+		$start = 0;
+	}
+	elseif ($pagenum > $lastpage) {
+		$start = $lastpage;
+	}
+	else {
+		$start = ($pagenum - 1) * $perpage;
+	}
+
+	$limit = " LIMIT " . $start . ", " . $perpage ;
+
+	$event_list = $wpdb->get_results("SELECT * 
+				              			FROM ". $wpdb->prefix ."events WHERE" . $query . $sort . $limit);
+
+
 ?>
 <div class="main-content post">
-	<div class="search-form row">
+	<div class="search-form clearfix">
 		<div class="col-md-offset-1 col-md-10">
 			<div class="wrap clearfix">
 				<div class="col-md-12 well">
-					<div class="search-results pull-left"><?php echo $wpdb->num_rows ?> Results</div>
-					<div class="search-result-range pull-right">4 of <?php echo $wpdb->num_rows ?></div>
+					<div class="search-results pull-left"><?php echo $event_num; echo $event_num <= 1 ? " Result" : " Results"; ?> </div>
+					<div class="search-result-range pull-right"><?php echo ($perpage * $pagenum) > $event_num ? $event_num : ($perpage * $pagenum) ?> of <?php echo $event_num ?></div>
 				</div>
 				<div class="col-md-3 search-filter">
 					<h3>Refine Search</h3>
@@ -49,10 +73,10 @@ $event_list = $wpdb->get_results("SELECT *
 					    </div>
 					    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 					      	<div class="panel-body">
-					      		<form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="GET">
+					      		<form>
 					      		  <div class="form-group">
 					      		    <label for="exampleInputEmail1">Search For</label>
-					      		    <input type="text" class="form-control" name="q" id="q">
+					      		    <input type="text" class="form-control" name="q" id="q" value="<?php echo $_GET['q'] ?>">
 					      		  </div>
 					      		  <div class="form-group">
 					      		    <label for="exampleInputPassword1">Within</label>
@@ -77,8 +101,11 @@ $event_list = $wpdb->get_results("SELECT *
 					      		  </div>
 					      		  <div class="form-group">
 					      		    <label for="exampleInputPassword1">of Anywhere</label>
-					      		    <input type="text" class="form-control" name="zip" id="zip" placeholder="Zipcode">
+					      		    <input type="text" class="form-control" name="zip" id="zip" placeholder="Zipcode" value="<?php echo $_GET['zip'] ?>">
 					      		  </div>
+					      		  <?php 
+					      		  	echo getURLVariable( array('q','within','zip') ); 
+					      		  ?>
 					      		  <button type="submit" class="btn btn-primary btn-block">Refine Search</button>
 					      		</form>
 					      	</div>
@@ -104,11 +131,11 @@ $event_list = $wpdb->get_results("SELECT *
 					      		<h4>Date Range</h4>
 					      		<div class="form-group">
 					      		  <label for="exampleInputPassword1">From:</label>
-					      		  <input type="date" class="form-control" name="startdate" id="startdate">
+					      		  <input type="date" class="form-control" name="startdate" id="startdate" value="<?php echo $_GET['startdate'] ?>">
 					      		</div>
 					      		<div class="form-group">
 					      		  <label for="exampleInputPassword1">To:</label>
-					      		  <input type="date" class="form-control" name="enddate" id="enddate">
+					      		  <input type="date" class="form-control" name="enddate" id="enddate" value="<?php echo $_GET['enddate'] ?>">
 					      		</div>
 					      		<button type="submit" class="btn btn-primary btn-block">Refine Search</button>
 					      	</div>
@@ -134,7 +161,7 @@ $event_list = $wpdb->get_results("SELECT *
 					</div>
 				</div>
 				<div class="col-md-9">
-					<form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="GET">
+					<form>
 						<div class="sort-option">
 					        <div class="sortTools">
 					            <strong>Sort By</strong>
@@ -171,30 +198,35 @@ $event_list = $wpdb->get_results("SELECT *
 
 					                ?>
 					            </select>
+					            <?php 
+					            	$exclude = array('sortby','perpage');
+					            	echo getURLVariable($exclude); 
+					            ?>
 					            <input type="submit" class="btn btn-primary btn-sort" value="Go" />
 					        </div>
 						</div>
 
 			            <nav class="pull-right">
 			              	<ul class="pagination">
-			                	<li>
-			                  		<a href="#" aria-label="Previous">
-			                    		<span aria-hidden="true">&laquo;</span>
-			                  		</a>
-			                	</li>
+			              		<?php if($pagenum > 1): ?>
+			              			<li>
+			              		  		<a href="<?php echo generateQuery('pagenum', ( $pagenum -1 ) ); ?>" aria-label="Previous">
+			              		    		<span aria-hidden="true">&laquo;</span>
+			              		  		</a>
+			              			</li>
+			              		<?php endif; ?>
 
-			                
-				                <li class="active"><a href="#">1</a></li>
-				                <li><a href="?page=2">2</a></li>
-				                <li><a href="#">3</a></li>
-				                <li><a href="#">4</a></li>
-				                <li><a href="#">5</a></li>
-			                	<li>
-			                  		<a href="#" aria-label="Next">
-			                    		<span aria-hidden="true">&raquo;</span>
-			                  		</a>
-			                	</li>
-			              	</ul>
+			              		<?php for ($i=1; $i <= $lastpage ; $i++) : ?>
+					                <li <?php echo $pagenum == $i ? 'class="active"' : '' ?> ><a href="<?php echo generateQuery('pagenum', $i); ?>"><?php echo $i ?></a></li>
+					            <?php endfor ?>
+					            <?php if($pagenum != $lastpage): ?>
+					            	<li>
+					              		<a href="<?php echo generateQuery('pagenum', ( $pagenum + 1) ) ?>" aria-label="Next">
+					                		<span aria-hidden="true">&raquo;</span>
+					              		</a>
+					            	</li>
+					            <?php endif; ?>
+		              		</ul>
 			            </nav>
 					</form>
 					<div class="event-list">
@@ -222,24 +254,27 @@ $event_list = $wpdb->get_results("SELECT *
 					</div>
 					<nav class="pull-right">
 		              	<ul class="pagination">
-		                	<li>
-		                  		<a href="#" aria-label="Previous">
-		                    		<span aria-hidden="true">&laquo;</span>
-		                  		</a>
-		                	</li>
-			                <li class="active"><a href="#">1</a></li>
-			                <li><a href="#">2</a></li>
-			                <li><a href="#">3</a></li>
-			                <li><a href="#">4</a></li>
-			                <li><a href="#">5</a></li>
-		                	<li>
-		                  		<a href="#" aria-label="Next">
-		                    		<span aria-hidden="true">&raquo;</span>
-		                  		</a>
-		                	</li>
-		              	</ul>
+		              		<?php if($pagenum > 1): ?>
+		              			<li>
+		              		  		<a href="<?php echo generateQuery('pagenum', ( $pagenum -1 ) ); ?>" aria-label="Previous">
+		              		    		<span aria-hidden="true">&laquo;</span>
+		              		  		</a>
+		              			</li>
+		              		<?php endif; ?>
+
+		              		<?php for ($i=1; $i <= $lastpage ; $i++) : ?>
+				                <li <?php echo $pagenum == $i ? 'class="active"' : '' ?> ><a href="<?php echo generateQuery('pagenum', $i); ?>"><?php echo $i ?></a></li>
+				            <?php endfor ?>
+				            <?php if($pagenum != $lastpage): ?>
+				            	<li>
+				              		<a href="<?php echo generateQuery('pagenum', ( $pagenum + 1) ) ?>" aria-label="Next">
+				                		<span aria-hidden="true">&raquo;</span>
+				              		</a>
+				            	</li>
+				            <?php endif; ?>
+	              		</ul>
 		            </nav>
-					
+
 				</div>
 			</div>
 		</div>
