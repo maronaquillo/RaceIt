@@ -6,6 +6,7 @@ $perpage = 20;
 $limit = "";
 $q = "";
 $sortby = "";
+$zip = 0;
 extract($_GET);
 
 
@@ -18,19 +19,23 @@ switch ($sortby) {
 	    break;
 	case 'name_asc':
 	    $sort = " ORDER BY `event_name` ASC";
-	    break;
-	    
+	    break;	    
 	case 'date_desc':
 	default:
 	    $sort = " ORDER BY `event_date` DESC";
-	    break;	
+	    break;
 }
 
+$z = $zip != "" ? " AND event_postal=" . $zip : "" ;
+$keyword = " event_name LIKE '%". $q ."%'";
 
-$query = " event_name LIKE '%". $q ."%'";
+$date = $advancedate == 0 ? "" : "AND event_date BETWEEN '" . date('Y-m-d H:i:s') . "' AND '" . date( 'Y-m-d H:i:s', strtotime( "+" . $advancedate . " days",time() ) ) . "'";
+$daterange = ( $startdate == "" OR $enddate == "" ) ? "" : " AND event_date BETWEEN '" . date('Y-m-d H:i:s', strtotime($startdate)) . "' AND '" . date( 'Y-m-d H:i:s', strtotime($enddate)) . "'";
+$type = $type == "" ? "" : " AND event_type=" . $type;
 
-$event_list = $wpdb->get_results("SELECT * 
-								  FROM ". $wpdb->prefix ."events WHERE" . $query . $sort);
+$query = "SELECT * FROM ". $wpdb->prefix ."events WHERE" . $keyword . $z . $type . $date . $daterange . $sort;
+
+$event_list = $wpdb->get_results($query);
 
 $event_num = $wpdb->num_rows;
 $lastpage =  ceil($event_num / $perpage );
@@ -46,10 +51,7 @@ $lastpage =  ceil($event_num / $perpage );
 	}
 
 	$limit = " LIMIT " . $start . ", " . $perpage ;
-
-	$event_list = $wpdb->get_results("SELECT * 
-				              			FROM ". $wpdb->prefix ."events WHERE" . $query . $sort . $limit);
-
+	$event_list = $wpdb->get_results( $query. $limit);
 
 ?>
 <div class="main-content post">
@@ -78,7 +80,7 @@ $lastpage =  ceil($event_num / $perpage );
 					      		    <label for="exampleInputEmail1">Search For</label>
 					      		    <input type="text" class="form-control" name="q" id="q" value="<?php echo $_GET['q'] ?>">
 					      		  </div>
-					      		  <div class="form-group">
+					      		 <?php /* ?> <div class="form-group">
 					      		    <label for="exampleInputPassword1">Within</label>
 					      		    <select name="within">
 					      		    	<option value="0">Any Distance</option>
@@ -98,14 +100,11 @@ $lastpage =  ceil($event_num / $perpage );
 
 					      		        ?>
 					      		    </select>
-					      		  </div>
+					      		  </div> <?php */ ?>
 					      		  <div class="form-group">
 					      		    <label for="exampleInputPassword1">of Anywhere</label>
 					      		    <input type="text" class="form-control" name="zip" id="zip" placeholder="Zipcode" value="<?php echo $_GET['zip'] ?>">
 					      		  </div>
-					      		  <?php 
-					      		  	echo getURLVariable( array('q','within','zip') ); 
-					      		  ?>
 					      		  <button type="submit" class="btn btn-primary btn-block">Refine Search</button>
 					      		</form>
 					      	</div>
@@ -120,25 +119,27 @@ $lastpage =  ceil($event_num / $perpage );
 					      </h4>
 					    </div>
 					    <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
-					      	<div class="panel-body">
-					      		<ul>
-					      			<li><a href="?advancedate=7">Next 7 Days</a></li>
-					      			<li><a href="?advancedate=30">Next 30 Days</a></li>
-					      			<li><a href="?advancedate=90">Next 90 Days</a></li>
-					      			<li><a href="?advancedate=">All Dates</a></li>
-					      		</ul>
+					      	<form>
+						      	<div class="panel-body">
+						      		<ul>
+						      			<li><a href="<?php echo site_url('/search');?>?advancedate=7">Next 7 Days</a></li>
+						      			<li><a href="<?php echo site_url('/search');?>?advancedate=30">Next 30 Days</a></li>
+						      			<li><a href="<?php echo site_url('/search');?>?advancedate=90">Next 90 Days</a></li>
+						      			<li><a href="<?php echo site_url('/search');?>?advancedate=0">All Dates</a></li>
+						      		</ul>
 
-					      		<h4>Date Range</h4>
-					      		<div class="form-group">
-					      		  <label for="exampleInputPassword1">From:</label>
-					      		  <input type="date" class="form-control" name="startdate" id="startdate" value="<?php echo $_GET['startdate'] ?>">
-					      		</div>
-					      		<div class="form-group">
-					      		  <label for="exampleInputPassword1">To:</label>
-					      		  <input type="date" class="form-control" name="enddate" id="enddate" value="<?php echo $_GET['enddate'] ?>">
-					      		</div>
-					      		<button type="submit" class="btn btn-primary btn-block">Refine Search</button>
-					      	</div>
+						      		<h4>Date Range</h4>
+						      		<div class="form-group">
+						      		  <label for="exampleInputPassword1">From:</label>
+						      		  <input required type="date" class="form-control" name="startdate" id="startdate" value="<?php echo $_GET['startdate'] ?>">
+						      		</div>
+						      		<div class="form-group">
+						      		  <label for="exampleInputPassword1">To:</label>
+						      		  <input required type="date" class="form-control" name="enddate" id="enddate" value="<?php echo $_GET['enddate'] ?>">
+						      		</div>
+						      		<button type="submit" class="btn btn-primary btn-block">Refine Search</button>
+						      	</div>
+						     </form>
 					    </div>
 					  </div>
 					  <div class="panel panel-default">
@@ -151,9 +152,13 @@ $lastpage =  ceil($event_num / $perpage );
 					    </div>
 					    <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
 					      	<div class="panel-body">
+					      		<?php 
+					      			$event_type = $wpdb->get_results("SELECT et.event_type_id, et.event_type_name, COUNT(e.event_id) event_count FROM ". $wpdb->prefix ."events e JOIN ". $wpdb->prefix ."event_types et ON et.event_type_id = e.event_type GROUP BY et.event_type_name");
+					      		?>
 					      		<ul>
-					      			<li><a href="?type=7">Adventure Events (7)</a></li>
-					      			<li><a href="?type=7">Basketball Events (2)</a></li>
+					      			<?php foreach( $event_type as $type ): ?>
+					      				<li><a href="?type=<?php echo $type->event_type_id ?>"><?php echo $type->event_type_name . " ( " . $type->event_count . " )" ?> </a></li>
+					      			<?php endforeach; ?>
 					      		</ul>
 					      	</div>
 					    </div>
