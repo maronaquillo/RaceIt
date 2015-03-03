@@ -146,39 +146,41 @@
 						<div class="search-event-drop">
 							<a href="" class="search-event-drop-link">Search Events</a>
 							<div class="searchdropdown">
-							    <div id="keywordLocationFacet">
-							        <div class="facet eventsearch">
-			                            <label class="facetSubheader">Search for</label>
-			                            <input placeholder="Search for" name="ctl00$Top$searchTermTextBox" type="text" id="ctl00_Top_searchTermTextBox" class="eventsearch-input">
-							        </div>
-							                        
-			                        <div class="facet location">
-			                            <span class="facetSubheader">
-			                                Your Current Location is:
-			                            </span> 
-			                            <span id="ctl00_Top_currentLocationLabelFlyout" class="facetHeader currentLocationLabel" style="color:White;">Anywhere</span>
-			                 			<div id="changeLocationWrapper">
-			                                <input name="ctl00$Top$zipCodeTextBoxFlyout" type="text" value="Zipcode" maxlength="5" id="ctl00_Top_zipCodeTextBoxFlyout" class="zipCodeTextBoxFlyout" style="display: none;">
-			                                <div id="zipCodeChangeLinkFlyout" style="color:White;">Change Zipcode</div>
-			                            </div>
-			                        </div>
-			                        
-			                        <div class="facet distance">
-			                            <span class="facetSubheader">Distance</span>
-			                            <select name="ctl00$Top$searchRadiusDropDownFlyout" id="ctl00_Top_searchRadiusDropDownFlyout" class="searchRadiusDropDownFlyout">
-											<option value="25">25 miles</option>
-											<option value="50">50 miles</option>
-											<option value="75">75 miles</option>
-											<option value="100">100 miles</option>
-											<option value="250">250 miles</option>
-											<option value="0">any distance</option>
-										</select>
-			                        </div>
-							                        
-			                        <div class="updateButton">
-			                            <input type="submit" name="ctl00$Top$keywordLocationRefineBtnFlyout" value="Search" id="ctl00_Top_keywordLocationRefineBtnFlyout" class="refineSearchBtn flyoutSearchBtn" data-facet="keyword">
-			                        </div>
-			                    </div>
+								<form action="<?php echo site_url('/search' );?>">
+								    <div id="keywordLocationFacet">
+								        <div class="facet eventsearch">
+				                            <label class="facetSubheader">Search for</label>
+				                            <input placeholder="Search for" name="q" type="text" id="q" class="eventsearch-input">
+								        </div>
+								                        
+				                        <div class="facet location">
+				                            <span class="facetSubheader">
+				                                Your Current Location is:
+				                            </span> 
+				                            <span id="" class="facetHeader currentLocationLabel" style="color:White;">Anywhere</span>
+				                 			<div id="changeLocationWrapper">
+				                                <input name="zip" type="text" placeholder="Enter ZIP Code" maxlength="5" id="zip" class="zipCodeTextBoxFlyout" style="display: block;">
+				                                <!-- <div id="zipCodeChangeLinkFlyout" style="color:White;">Change Zipcode</div> -->
+				                            </div>
+				                        </div>
+				                        
+				                        <!-- <div class="facet distance">
+				                            <span class="facetSubheader">Distance</span>
+				                            <select name="within" id="within" class="searchRadiusDropDownFlyout">
+												<option value="25">25 miles</option>
+												<option value="50">50 miles</option>
+												<option value="75">75 miles</option>
+												<option value="100">100 miles</option>
+												<option value="250">250 miles</option>
+												<option value="0">any distance</option>
+											</select>
+				                        </div> -->
+								                        
+				                        <div class="updateButton">
+				                            <input type="submit" value="Search" class="refineSearchBtn flyoutSearchBtn" data-facet="keyword">
+				                        </div>
+				                    </div>
+				                </form>
 							</div>
 						</div>
 					</div>
